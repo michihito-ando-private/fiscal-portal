@@ -139,7 +139,7 @@ body {
 }
 .search-box:focus { outline: 2px solid var(--accent); border-color: transparent; }
 
-/* ---------- Subtabs (論文・レポート種別) ---------- */
+/* ---------- Subtabs (テーマ・種別絞り込み) ---------- */
 .subtabs {
   display: flex;
   align-items: center;
@@ -147,6 +147,9 @@ body {
   flex-wrap: wrap;
   padding-bottom: 10px;
 }
+
+/* display:flex が hidden属性を上書きしないようにする */
+.subtabs[hidden] { display: none; }
 
 .subtabs-label {
   font-size: 0.78rem;
