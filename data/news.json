@@ -144,6 +144,7 @@
     {
       "id": "res-20260415-imf-fm-report",
       "category": "research",
+      "subcategory": "intl_report",
       "title": "IMF「Fiscal Monitor, April 2026: Fiscal Policy under Pressure ― High Debt, Rising Risks」",
       "summary": "IMFの半期財政報告書。高債務と上昇するリスクの下での財政政策運営を分析。世界公的債務のGDP比100%到達の前倒し予測、防衛・社会保障・利払いの歳出圧力、財政余地の縮小の中での短期的圧力と長期的持続可能性のバランスの取り方について政策提言を行っている。本文・各章・オンライン付録がPDFで公開されている。",
       "source": "IMF",
@@ -154,6 +155,7 @@
     {
       "id": "res-20260428-zaiseishin",
       "category": "research",
+      "subcategory": "report_ja",
       "title": "財政制度等審議会「持続可能な社会保障制度の構築（財政各論Ⅱ）」資料",
       "summary": "財務省の財政制度分科会（2026年4月28日開催）の審議資料。全世代型社会保障の考え方の下、医療・介護・年金の給付と負担の見直し、能力に応じた負担のあり方、2026年度以降の社会保障予算編成の課題を整理している。骨太方針2026・2027年度予算編成に向けた歳出改革の議論の土台となる一次資料。",
       "source": "財務省 財政制度等審議会",
@@ -164,6 +166,7 @@
     {
       "id": "res-20260413-dlri",
       "category": "research",
+      "subcategory": "report_ja",
       "title": "第一生命経済研究所・永濱利廣「経済財政諮問会議（2026年4月13日）解説 ～骨太方針2026策定と予算編成について～」",
       "summary": "高市内閣初となる骨太方針2026の策定に向けた経済財政諮問会議の議論を解説。予算編成のあり方の抜本的見直しに関する提言や、複数年度での投資支援の枠組みについて、マクロ経済の観点から論点を整理している。",
       "source": "第一生命経済研究所",
@@ -174,6 +177,7 @@
     {
       "id": "res-20260121-dir",
       "category": "research",
+      "subcategory": "report_ja",
       "title": "大和総研「米国経済見通し ― 犠牲になるのは財政」",
       "summary": "米国経済の2026年見通しレポート。減税延長と関税収入の綱引きの中で、経済成長を支える代償として財政赤字が拡大していく構図を分析。金利負担の増大が中長期的な米国財政の持続可能性に与える影響を論じている。",
       "source": "大和総研",
@@ -184,6 +188,7 @@
     {
       "id": "res-20260115-nli",
       "category": "research",
+      "subcategory": "report_ja",
       "title": "ニッセイ基礎研究所「2026年度の社会保障予算を分析する ― 診療報酬は30年ぶりの高水準」",
       "summary": "2026年度の社会保障予算を包括的に分析したレポート。診療報酬本体+3.09%の内訳と背景、介護・障害福祉の期中改定、高額療養費の見直し論議、社会保障関係費39兆円の構造を詳細に解説している。",
       "source": "ニッセイ基礎研究所",
@@ -194,12 +199,46 @@
     {
       "id": "res-20260401-mof-zaisei",
       "category": "research",
+      "subcategory": "report_ja",
       "title": "財務省「日本の財政関係資料」（令和8年4月版）",
       "summary": "日本の財政状況を図表で概観できる財務省の定期資料の最新版。一般会計の歳出歳入構造、公債残高の累増、社会保障給付費の推移、国際比較（債務残高GDP比等）など、財政を学ぶ際の基礎データがまとまっている。",
       "source": "財務省",
       "url": "https://www.mof.go.jp/policy/budget/fiscal_condition/related_data/202604_00.pdf",
       "date": "2026-04-01",
       "tags": ["財務省", "基礎資料", "一次資料"]
+    },
+    {
+      "id": "res-20260115-nber-w34574",
+      "category": "research",
+      "subcategory": "paper_en",
+      "title": "Social Security Reforms and Inequality in Japan (NBER Working Paper No. 34574)",
+      "summary": "小塩隆士・清水谷諭・大石亜希子による、日本の公的年金改革が高齢者の所得格差に与える影響を分析したNBERワーキングペーパー。NBERの国際比較プロジェクト「Social Security Programs and Retirement around the World」の一環として、年金改革のシミュレーションを通じて給付水準の変化と世帯間格差の関係を検証している。",
+      "source": "NBER",
+      "url": "https://www.nber.org/papers/w34574",
+      "date": "2026-01-15",
+      "tags": ["年金", "格差", "日本", "NBER"]
+    },
+    {
+      "id": "res-20260620-iza-dp18763",
+      "category": "research",
+      "subcategory": "paper_en",
+      "title": "Leaving School Early: A Mediation Analysis Linking Adolescent Mental Health Disorders to Early Adult Outcomes (IZA DP No. 18763)",
+      "summary": "Anna Adamecz、John Jerrim、Ágnes Szabó-Morvaiによる、思春期のメンタルヘルス問題が早期の学校離脱を媒介して成人初期のアウトカム（就労・所得等）に与える影響を媒介分析で検証したIZAディスカッションペーパー。教育政策と若年支援策の設計に示唆を与える。",
+      "source": "IZA (Institute of Labor Economics)",
+      "url": "https://www.iza.org/publications/dp/18763",
+      "date": "2026-06-20",
+      "tags": ["教育", "メンタルヘルス", "IZA"]
+    },
+    {
+      "id": "res-20260120-keizaibunseki211",
+      "category": "research",
+      "subcategory": "paper_ja",
+      "title": "『経済分析』第211号（内閣府経済社会総合研究所）",
+      "summary": "内閣府経済社会総合研究所が発行する査読付き学術誌の最新号（2026年1月発行）。マクロ経済分析、生産性・成長力強化、財政・金融政策の効果分析など、政策課題を経済学的視点から実証分析した論文を掲載している。",
+      "source": "内閣府経済社会総合研究所",
+      "url": "https://www.gov-online.go.jp/data_room/publication/202601/cao-11054.html",
+      "date": "2026-01-20",
+      "tags": ["経済分析", "実証分析", "内閣府"]
     }
   ]
 }

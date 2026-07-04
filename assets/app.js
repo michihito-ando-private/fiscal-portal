@@ -5,8 +5,16 @@ const CATEGORY_LABELS = {
   research: "論文・レポート",
 };
 
+const SUBCATEGORY_LABELS = {
+  paper_en: "英語論文",
+  paper_ja: "日本語論文",
+  intl_report: "国際機関レポート",
+  report_ja: "日本語レポート",
+};
+
 let allArticles = [];
 let currentCategory = "all";
+let currentSubcategory = "all";
 let currentQuery = "";
 
 function formatDate(iso) {
@@ -28,6 +36,11 @@ function render() {
 
   const filtered = allArticles.filter((a) => {
     if (currentCategory !== "all" && a.category !== currentCategory) return false;
+    if (
+      currentCategory === "research" &&
+      currentSubcategory !== "all" &&
+      a.subcategory !== currentSubcategory
+    ) return false;
     if (!q) return true;
     const haystack = [a.title, a.summary, a.source, ...(a.tags || [])].join(" ").toLowerCase();
     return haystack.includes(q);
@@ -40,7 +53,11 @@ function render() {
       (a) => `
     <article class="card cat-${a.category}">
       <div class="card-meta">
-        <span class="badge badge-${a.category}">${CATEGORY_LABELS[a.category] || a.category}</span>
+        <span class="badge badge-${a.category}">${
+          (a.category === "research" && SUBCATEGORY_LABELS[a.subcategory]) ||
+          CATEGORY_LABELS[a.category] ||
+          a.category
+        }</span>
         <time datetime="${a.date}">${formatDate(a.date)}</time>
       </div>
       <h2 class="card-title"><a href="${a.url}" target="_blank" rel="noopener noreferrer">${a.title}</a></h2>
@@ -76,6 +93,20 @@ document.querySelectorAll(".tab").forEach((tab) => {
     document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
     tab.classList.add("active");
     currentCategory = tab.dataset.category;
+    // 論文・レポートタブのときだけサブカテゴリ絞り込みを表示
+    document.getElementById("subtabs").hidden = currentCategory !== "research";
+    currentSubcategory = "all";
+    document.querySelectorAll(".subtab").forEach((s) => s.classList.remove("active"));
+    document.querySelector('.subtab[data-subcategory="all"]').classList.add("active");
+    render();
+  });
+});
+
+document.querySelectorAll(".subtab").forEach((subtab) => {
+  subtab.addEventListener("click", () => {
+    document.querySelectorAll(".subtab").forEach((s) => s.classList.remove("active"));
+    subtab.classList.add("active");
+    currentSubcategory = subtab.dataset.subcategory;
     render();
   });
 });

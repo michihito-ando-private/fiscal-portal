@@ -139,6 +139,42 @@ body {
 }
 .search-box:focus { outline: 2px solid var(--accent); border-color: transparent; }
 
+/* ---------- Subtabs (論文・レポート種別) ---------- */
+.subtabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+}
+
+.subtabs-label {
+  font-size: 0.78rem;
+  color: var(--ink-light);
+  margin-right: 2px;
+}
+
+.subtab {
+  border: 1px solid var(--border);
+  background: #fdf8f1;
+  border-radius: 999px;
+  padding: 4px 13px;
+  font-family: inherit;
+  font-size: 0.78rem;
+  color: var(--ink-light);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.subtab:hover { border-color: var(--c-research); }
+
+.subtab.active {
+  background: var(--c-research);
+  border-color: var(--c-research);
+  color: #fff;
+  font-weight: 700;
+}
+
 /* ---------- Articles ---------- */
 main { padding: 26px 0 50px; }
 
