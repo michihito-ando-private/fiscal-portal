@@ -156,7 +156,7 @@ body {
 
 .subtab {
   border: 1px solid var(--border);
-  background: #fdf8f1;
+  background: #fff;
   border-radius: 999px;
   padding: 4px 13px;
   font-family: inherit;
@@ -166,14 +166,20 @@ body {
   transition: all 0.15s;
 }
 
-.subtab:hover { border-color: var(--c-research); }
+.subtab:hover { border-color: var(--accent); }
 
 .subtab.active {
-  background: var(--c-research);
-  border-color: var(--c-research);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
   font-weight: 700;
 }
+
+/* カテゴリごとのアクティブ色 */
+.subtabs-expenditure .subtab.active { background: var(--c-expenditure); border-color: var(--c-expenditure); }
+.subtabs-revenue .subtab.active { background: var(--c-revenue); border-color: var(--c-revenue); }
+.subtabs-international .subtab.active { background: var(--c-international); border-color: var(--c-international); }
+.subtabs-research .subtab.active { background: var(--c-research); border-color: var(--c-research); }
 
 /* ---------- Articles ---------- */
 main { padding: 26px 0 50px; }
@@ -228,6 +234,20 @@ main { padding: 26px 0 50px; }
 .badge-revenue { background: var(--c-revenue); }
 .badge-international { background: var(--c-international); }
 .badge-research { background: var(--c-research); }
+
+/* テーマ（サブカテゴリ）チップ */
+.sub-label {
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 1px 7px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  background: #fff;
+}
+.sub-expenditure { color: var(--c-expenditure); border-color: var(--c-expenditure); }
+.sub-revenue { color: var(--c-revenue); border-color: var(--c-revenue); }
+.sub-international { color: var(--c-international); border-color: var(--c-international); }
+.sub-research { color: var(--c-research); border-color: var(--c-research); }
 
 .card-title {
   font-size: 1.02rem;
