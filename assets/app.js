@@ -3,6 +3,7 @@ const CATEGORY_LABELS = {
   revenue: "歳入",
   international: "国際",
   research: "論文・レポート",
+  digest: "今日のまとめ",
 };
 
 // カテゴリごとのサブカテゴリ（テーマ／種別）定義
@@ -94,10 +95,14 @@ function render() {
         ${sub ? `<span class="sub-label sub-${a.category}">${sub}</span>` : ""}
         <time datetime="${a.date}">${formatDate(a.date)}</time>
       </div>
-      <h2 class="card-title"><a href="${a.url}" target="_blank" rel="noopener noreferrer">${a.title}</a></h2>
+      <h2 class="card-title">${
+        a.url
+          ? `<a href="${a.url}" target="_blank" rel="noopener noreferrer">${a.title}</a>`
+          : a.title
+      }</h2>
       <p class="card-summary">${a.summary}</p>
       <div class="card-footer">
-        <span class="card-source">出典: ${a.source}</span>
+        <span class="card-source">${a.source ? `出典: ${a.source}` : ""}</span>
         <span class="tag-list">${(a.tags || []).map((t) => `<span class="tag" data-tag="${t}">#${t}</span>`).join("")}</span>
       </div>
     </article>`;

@@ -9,6 +9,7 @@
   --c-revenue: #1e7f4f;
   --c-international: #7c4dab;
   --c-research: #b06a1f;
+  --c-digest: #a83a4e;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -127,6 +128,7 @@ body {
 .tab-revenue.active { background: var(--c-revenue); border-color: var(--c-revenue); }
 .tab-international.active { background: var(--c-international); border-color: var(--c-international); }
 .tab-research.active { background: var(--c-research); border-color: var(--c-research); }
+.tab-digest.active { background: var(--c-digest); border-color: var(--c-digest); }
 
 .search-box {
   border: 1px solid var(--border);
@@ -217,6 +219,18 @@ main { padding: 26px 0 50px; }
 .card.cat-international { border-top-color: var(--c-international); }
 .card.cat-research { border-top-color: var(--c-research); }
 
+/* 今日のまとめ: 横幅いっぱいの読み物カード */
+.card.cat-digest {
+  border-top-color: var(--c-digest);
+  grid-column: 1 / -1;
+  background: #fdf9f7;
+}
+.card.cat-digest .card-summary {
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.9;
+}
+
 .card-meta {
   display: flex;
   align-items: center;
@@ -237,6 +251,7 @@ main { padding: 26px 0 50px; }
 .badge-revenue { background: var(--c-revenue); }
 .badge-international { background: var(--c-international); }
 .badge-research { background: var(--c-research); }
+.badge-digest { background: var(--c-digest); }
 
 /* テーマ（サブカテゴリ）チップ */
 .sub-label {
