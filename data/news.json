@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03T12:00:00+09:00",
+  "lastUpdated": "2026-07-04T17:37:34+09:00",
   "articles": [
     {
       "id": "exp-20260630-honebuto",
@@ -10,7 +10,11 @@
       "source": "内閣府 経済財政諮問会議",
       "url": "https://www5.cao.go.jp/keizai-shimon/kaigi/minutes/2026/0630_shiryo01.pdf",
       "date": "2026-06-30",
-      "tags": ["骨太方針", "経済財政運営", "社会保障"]
+      "tags": [
+        "骨太方針",
+        "経済財政運営",
+        "社会保障"
+      ]
     },
     {
       "id": "exp-20251224-budget2026",
@@ -21,7 +25,12 @@
       "source": "日本経済新聞",
       "url": "https://www.nikkei.com/article/DGXZQOUA241X40U5A221C2000000/",
       "date": "2025-12-24",
-      "tags": ["国家予算", "社会保障", "防衛費", "国債費"]
+      "tags": [
+        "国家予算",
+        "社会保障",
+        "防衛費",
+        "国債費"
+      ]
     },
     {
       "id": "exp-20260101-shinryohoshu",
@@ -32,7 +41,11 @@
       "source": "ニッセイ基礎研究所",
       "url": "https://www.nli-research.co.jp/report/detail/id=84818?site=nli",
       "date": "2026-01-15",
-      "tags": ["社会保障", "医療", "診療報酬"]
+      "tags": [
+        "社会保障",
+        "医療",
+        "診療報酬"
+      ]
     },
     {
       "id": "exp-20260331-kokomushoka",
@@ -43,7 +56,11 @@
       "source": "日本経済新聞",
       "url": "https://www.nikkei.com/article/DGXZQOUA315K60R30C26A3000000/",
       "date": "2026-03-31",
-      "tags": ["教育", "高校無償化", "就学支援金"]
+      "tags": [
+        "教育",
+        "高校無償化",
+        "就学支援金"
+      ]
     },
     {
       "id": "exp-20260115-kokyojigyo",
@@ -54,7 +71,10 @@
       "source": "総合資格navi（財務省・国土交通省資料より）",
       "url": "https://www.arc-navi.shikaku.co.jp/column/details.php?column_id=5015",
       "date": "2026-01-15",
-      "tags": ["公共事業", "国土強靱化"]
+      "tags": [
+        "公共事業",
+        "国土強靱化"
+      ]
     },
     {
       "id": "exp-20251223-chihokofuzei",
@@ -65,7 +85,11 @@
       "source": "日本経済新聞",
       "url": "https://www.nikkei.com/article/DGXZQOUA237DU0T21C25A2000000/",
       "date": "2025-12-23",
-      "tags": ["自治体", "地方財政", "地方交付税"]
+      "tags": [
+        "自治体",
+        "地方財政",
+        "地方交付税"
+      ]
     },
     {
       "id": "rev-20251224-zeishu",
@@ -76,7 +100,10 @@
       "source": "nippon.com",
       "url": "https://www.nippon.com/ja/japan-data/h02652/",
       "date": "2025-12-25",
-      "tags": ["税収", "国家予算"]
+      "tags": [
+        "税収",
+        "国家予算"
+      ]
     },
     {
       "id": "rev-20251224-kokusai-hakko",
@@ -87,7 +114,10 @@
       "source": "東洋経済オンライン",
       "url": "https://toyokeizai.net/articles/-/926589",
       "date": "2025-12-26",
-      "tags": ["国債", "財政健全化"]
+      "tags": [
+        "国債",
+        "財政健全化"
+      ]
     },
     {
       "id": "rev-20251224-kokusaihi",
@@ -98,7 +128,11 @@
       "source": "日本経済新聞",
       "url": "https://www.nikkei.com/article/DGXZQOUA2430H0U5A221C2000000/",
       "date": "2025-12-24",
-      "tags": ["国債", "金利", "利払い費"]
+      "tags": [
+        "国債",
+        "金利",
+        "利払い費"
+      ]
     },
     {
       "id": "rev-20260630-shakaihoken",
@@ -109,7 +143,11 @@
       "source": "CIVIC AI",
       "url": "https://civic-ai.xyz/articles/honebuto-2026",
       "date": "2026-06-30",
-      "tags": ["保険料", "骨太方針", "社会保障"]
+      "tags": [
+        "保険料",
+        "骨太方針",
+        "社会保障"
+      ]
     },
     {
       "id": "int-20260415-imf-fm",
@@ -120,7 +158,11 @@
       "source": "IMF",
       "url": "https://www.imf.org/en/publications/fm/issues/2026/04/15/fiscal-monitor-april-2026",
       "date": "2026-04-15",
-      "tags": ["IMF", "公的債務", "世界経済"]
+      "tags": [
+        "IMF",
+        "公的債務",
+        "世界経済"
+      ]
     },
     {
       "id": "int-20260211-cbo",
@@ -131,7 +173,11 @@
       "source": "日本経済新聞",
       "url": "https://www.nikkei.com/article/DGXZQOGN1149K0R10C26A2000000/",
       "date": "2026-02-11",
-      "tags": ["アメリカ", "財政赤字", "CBO"]
+      "tags": [
+        "アメリカ",
+        "財政赤字",
+        "CBO"
+      ]
     },
     {
       "id": "int-20260601-us-socialsecurity",
@@ -142,7 +188,12 @@
       "source": "Forbes JAPAN",
       "url": "https://forbesjapan.com/articles/detail/94414",
       "date": "2026-05-20",
-      "tags": ["アメリカ", "社会保障", "年金", "医療"]
+      "tags": [
+        "アメリカ",
+        "社会保障",
+        "年金",
+        "医療"
+      ]
     },
     {
       "id": "int-20260410-germany",
@@ -153,7 +204,11 @@
       "source": "東洋経済オンライン",
       "url": "https://toyokeizai.net/articles/-/877175",
       "date": "2026-04-10",
-      "tags": ["ドイツ", "防衛費", "ヨーロッパ"]
+      "tags": [
+        "ドイツ",
+        "防衛費",
+        "ヨーロッパ"
+      ]
     },
     {
       "id": "res-20260415-imf-fm-report",
@@ -164,7 +219,11 @@
       "source": "IMF",
       "url": "https://www.imf.org/-/media/files/publications/fiscal-monitor/2026/april/english/text.pdf",
       "date": "2026-04-15",
-      "tags": ["IMF", "レポート", "公的債務"]
+      "tags": [
+        "IMF",
+        "レポート",
+        "公的債務"
+      ]
     },
     {
       "id": "res-20260428-zaiseishin",
@@ -175,7 +234,11 @@
       "source": "財務省 財政制度等審議会",
       "url": "https://www.mof.go.jp/about_mof/councils/fiscal_system_council/sub-of_fiscal_system/proceedings/material/zaiseia20260428/01.pdf",
       "date": "2026-04-28",
-      "tags": ["財政審", "社会保障", "一次資料"]
+      "tags": [
+        "財政審",
+        "社会保障",
+        "一次資料"
+      ]
     },
     {
       "id": "res-20260413-dlri",
@@ -186,7 +249,11 @@
       "source": "第一生命経済研究所",
       "url": "https://www.dlri.co.jp/report/macro/598293.html",
       "date": "2026-04-14",
-      "tags": ["骨太方針", "経済財政", "シンクタンク"]
+      "tags": [
+        "骨太方針",
+        "経済財政",
+        "シンクタンク"
+      ]
     },
     {
       "id": "res-20260121-dir",
@@ -197,7 +264,11 @@
       "source": "大和総研",
       "url": "https://www.dir.co.jp/report/research/economics/usa/20260121_025544.html",
       "date": "2026-01-21",
-      "tags": ["アメリカ", "財政赤字", "シンクタンク"]
+      "tags": [
+        "アメリカ",
+        "財政赤字",
+        "シンクタンク"
+      ]
     },
     {
       "id": "res-20260115-nli",
@@ -208,7 +279,11 @@
       "source": "ニッセイ基礎研究所",
       "url": "https://www.nli-research.co.jp/report/detail/id=84818?site=nli",
       "date": "2026-01-15",
-      "tags": ["社会保障", "医療", "シンクタンク"]
+      "tags": [
+        "社会保障",
+        "医療",
+        "シンクタンク"
+      ]
     },
     {
       "id": "res-20260401-mof-zaisei",
@@ -219,7 +294,11 @@
       "source": "財務省",
       "url": "https://www.mof.go.jp/policy/budget/fiscal_condition/related_data/202604_00.pdf",
       "date": "2026-04-01",
-      "tags": ["財務省", "基礎資料", "一次資料"]
+      "tags": [
+        "財務省",
+        "基礎資料",
+        "一次資料"
+      ]
     },
     {
       "id": "res-20260115-nber-w34574",
@@ -230,7 +309,12 @@
       "source": "NBER",
       "url": "https://www.nber.org/papers/w34574",
       "date": "2026-01-15",
-      "tags": ["年金", "格差", "日本", "NBER"]
+      "tags": [
+        "年金",
+        "格差",
+        "日本",
+        "NBER"
+      ]
     },
     {
       "id": "res-20260620-iza-dp18763",
@@ -241,7 +325,11 @@
       "source": "IZA (Institute of Labor Economics)",
       "url": "https://www.iza.org/publications/dp/18763",
       "date": "2026-06-20",
-      "tags": ["教育", "メンタルヘルス", "IZA"]
+      "tags": [
+        "教育",
+        "メンタルヘルス",
+        "IZA"
+      ]
     },
     {
       "id": "res-20260120-keizaibunseki211",
@@ -252,7 +340,72 @@
       "source": "内閣府経済社会総合研究所",
       "url": "https://www.gov-online.go.jp/data_room/publication/202601/cao-11054.html",
       "date": "2026-01-20",
-      "tags": ["経済分析", "実証分析", "内閣府"]
+      "tags": [
+        "経済分析",
+        "実証分析",
+        "内閣府"
+      ]
+    },
+    {
+      "id": "rev-20260702-zeishu2025",
+      "category": "revenue",
+      "subcategory": "tax",
+      "title": "2025年度の国の税収は84.2兆円 ― 6年連続で過去最高を更新",
+      "summary": "2025年度の国の一般会計税収が84.2兆円程度となり、6年連続で過去最高を更新したことが7月2日分かった。企業の業績拡大で法人税収が伸びたほか、物価上昇や賃上げを背景に消費税収・所得税収も増加した。当初見積もり（83.7兆円）を上回る着地となった。",
+      "source": "日本経済新聞",
+      "url": "https://www.nikkei.com/article/DGXZQOUA262UA0W6A620C2000000/",
+      "date": "2026-07-02",
+      "tags": [
+        "税収",
+        "決算",
+        "法人税"
+      ]
+    },
+    {
+      "id": "rev-20260703-genzei-zaigen",
+      "category": "revenue",
+      "subcategory": "tax",
+      "title": "税収3兆円上振れも減税財源には不足 ― 食料品の消費税ゼロには5兆円必要",
+      "summary": "2025年度税収の上振れ約3兆円をめぐり、減税財源としての活用論が浮上しているが、食料品の消費税率ゼロには約5兆円、ガソリン減税には約0.7兆円が必要で、上振れ分だけでは賄えないとの分析。恒久減税を一時的な税収上振れで賄うことへの懸念も指摘されている。",
+      "source": "日本経済新聞",
+      "url": "https://www.nikkei.com/article/DGXZQOUA032JV0T00C26A7000000/",
+      "date": "2026-07-03",
+      "tags": [
+        "税収",
+        "消費税",
+        "減税"
+      ]
+    },
+    {
+      "id": "res-20260701-dlri-honebuto",
+      "category": "research",
+      "subcategory": "report_ja",
+      "title": "第一生命経済研究所・星野卓也「骨太方針2026のポイント（総論編）～責任ある積極財政の具体化と『成長重視』へのギアチェンジ～」",
+      "summary": "6月30日に示された骨太方針2026原案のポイントを総論的に解説したレポート。「危機管理投資」と「成長投資」を柱に、AI・半導体、量子、防衛産業、創薬・先端医療など17の戦略分野へ官民の投資を集中させ、内閣府試算では2040年度までの累計投資額は370兆円超とされる。従来の緊縮志向からの転換と財政規律のバランスを分析している。",
+      "source": "第一生命経済研究所",
+      "url": "https://www.dlri.co.jp/report/macro/623625.html",
+      "date": "2026-07-01",
+      "tags": [
+        "骨太方針",
+        "積極財政",
+        "シンクタンク"
+      ]
+    },
+    {
+      "id": "res-20260615-oecd-outlook-france",
+      "category": "research",
+      "subcategory": "intl_report",
+      "title": "OECD Economic Outlook, Volume 2026 Issue 1（フランス編）",
+      "summary": "OECDの経済見通し2026年第1号のフランス章。フランスの財政スタンスは2026〜27年にGDP比約1.5%の引き締めが続くものの、債務残高対GDP比の安定化には不十分で、121%まで上昇すると予測。年金改革の一時凍結により、当初2027年に年110億ユーロと見込まれた節減効果が2026年には約1億ユーロにとどまることも財政悪化要因として指摘されている。",
+      "source": "OECD",
+      "url": "https://www.oecd.org/en/publications/oecd-economic-outlook-volume-2026-issue-1_2d1956f0-en/full-report/france_ad7164c1.html",
+      "date": "2026-06-15",
+      "tags": [
+        "OECD",
+        "フランス",
+        "公的債務",
+        "年金"
+      ]
     }
   ]
 }
