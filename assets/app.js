@@ -3,6 +3,7 @@ const CATEGORY_LABELS = {
   revenue: "歳入",
   international: "国際",
   research: "論文・レポート",
+  government: "政府資料",
   digest: "今日のまとめ",
 };
 
@@ -38,10 +39,19 @@ const SUBCATEGORIES = {
     intl_report: "国際機関レポート",
     report_ja: "日本語レポート",
   },
+  government: {
+    cao: "内閣府",
+    mof: "財務省",
+    mhlw: "厚生労働省",
+    soumu: "総務省",
+    mext: "文部科学省",
+    cfa: "こども家庭庁",
+    gov_other: "その他省庁",
+  },
 };
 
-// サブカテゴリ行の見出し（researchは「種別」、その他は「テーマ」）
-const SUBTAB_HEADINGS = { research: "種別:" };
+// サブカテゴリ行の見出し
+const SUBTAB_HEADINGS = { research: "種別:", government: "省庁:" };
 
 let allArticles = [];
 let currentCategory = "all";
