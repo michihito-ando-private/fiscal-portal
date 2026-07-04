@@ -21,9 +21,15 @@ const SUBCATEGORIES = {
     gov_bond: "国債・金利",
   },
   international: {
-    intl_fiscal: "財政・債務",
-    intl_socsec: "社会保障",
-    intl_tax: "税制",
+    intl_comparison: "国際比較",
+    sweden: "スウェーデン",
+    germany: "ドイツ",
+    france: "フランス",
+    uk: "イギリス",
+    usa: "アメリカ",
+    korea: "韓国",
+    taiwan: "台湾",
+    intl_other: "その他",
   },
   research: {
     paper_en: "英語論文",
