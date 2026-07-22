@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-22T00:00:06+09:00",
+  "lastUpdated": "2026-07-23T01:19:51+09:00",
   "articles": [
     {
       "id": "gov-20260630-honebuto",
@@ -1268,6 +1268,183 @@
         "長期金利",
         "消費税",
         "財政規律"
+      ]
+    },
+    {
+      "id": "res-20260708-imf-weo-update",
+      "category": "research",
+      "subcategory": "intl_report",
+      "title": "IMF「世界経済見通し（WEO）改訂 2026年7月」― 戦争と技術の交錯、財政余地の再建を要請",
+      "summary": "IMFは2026年7月8日、世界経済見通しの改訂版「Global Economy in Crosscurrents of War and Technology」を公表した。世界成長率は2026年3.0%、2027年3.4%と4月時点からほぼ横ばい。一方で世界のディスインフレは足踏みし、総合インフレ率の見通しは今年4.7%へ上方修正された。財政面では、主要国の高水準の公的債務が国債市場を財政持続性の再評価にさらしており、他のショックが重なれば脆弱性が顕在化すると警告。エネルギー関連の財政支援は解除し、財政余地の再建を優先すべきだと勧告している。",
+      "source": "IMF",
+      "url": "https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026",
+      "date": "2026-07-08",
+      "tags": [
+        "IMF",
+        "世界経済見通し",
+        "公的債務",
+        "インフレ"
+      ]
+    },
+    {
+      "id": "res-20260501-oecd-restoring",
+      "category": "research",
+      "subcategory": "intl_report",
+      "title": "OECD「Restoring Public Finances（財政の再建）」― 医療・年金の歳出削減が各国で最多",
+      "summary": "OECDが2026年5月に公表した報告書。加盟国が高齢化、医療費、防衛需要という複数の歳出圧力に直面するなか、2026年のOECD調査に基づき各国で進行中の歳出削減の取り組みを分野横断で整理した。削減が最も多い分野は医療、年金、政府の運営経費、および企業・家計向け支援である。医療・長期ケアと老齢年金については個別章を設け、給付の効率化と持続可能性を高める具体的手法を検討している。日本の社会保障改革の議論と重なる論点が多く、国際比較の視点として有用。",
+      "source": "OECD",
+      "url": "https://www.oecd.org/en/publications/2026/05/restoring-public-finances_0c1f7ce5/full-report/overview-key-findings-and-strategic-directions_ce8029f8.html",
+      "date": "2026-05-01",
+      "tags": [
+        "OECD",
+        "財政再建",
+        "医療",
+        "年金",
+        "国際比較"
+      ]
+    },
+    {
+      "id": "res-20260701-iza-dp18809",
+      "category": "research",
+      "subcategory": "paper_en",
+      "title": "Progressing Towards Efficiency: The Role for Labor Tax Progression in Reforming Social Security (IZA DP No. 18809)",
+      "summary": "Krzysztof Makarski、Joanna Tyrowicz、Oliwia Komadaによる、社会保障改革における労働所得税の累進性の役割を分析したIZAディスカッションペーパー。年金制度改革を単独で評価するのではなく、労働所得税の累進構造と組み合わせて設計することで、効率性と再分配のトレードオフを改善できる可能性を検討する。年金制度の持続可能性と現役世代の労働インセンティブを両立させる制度設計として、日本の社会保険料負担の議論にも示唆を与える。",
+      "source": "IZA (Institute of Labor Economics)",
+      "url": "https://www.iza.org/publications/dp",
+      "date": "2026-07-01",
+      "tags": [
+        "IZA",
+        "年金",
+        "社会保障",
+        "労働所得税",
+        "英語論文"
+      ]
+    },
+    {
+      "id": "res-20260601-ec-germany-pension",
+      "category": "research",
+      "subcategory": "intl_report",
+      "title": "欧州委員会「Pension Reform Possibilities for Germany」― ドイツ年金制度の課題と改革選択肢",
+      "summary": "欧州委員会が2026年6月に公表したディスカッションペーパー（No.250）。ドイツの年金制度の仕組みと直面する課題を分析し、主要な改革の選択肢を概観する。人口高齢化による給付費の増大と現役世代の負担、支給開始年齢や給付水準の調整、私的年金の役割などを検討。防衛費拡大で財政余地が狭まるなかでの年金改革という論点は、同じく高齢化と防衛費増に直面する日本にとっても参考になる。",
+      "source": "European Commission",
+      "url": "https://economy-finance.ec.europa.eu/publications/pension-reform-possibilities-germany_en",
+      "date": "2026-06-01",
+      "tags": [
+        "欧州委員会",
+        "ドイツ",
+        "年金改革",
+        "高齢化"
+      ]
+    },
+    {
+      "id": "int-20260710-us-deficit-june",
+      "category": "international",
+      "subcategory": "usa",
+      "title": "米財政赤字、FY2026の9カ月で1.4兆ドル ― 前年同期を上回り、債務は31.7兆ドルに",
+      "summary": "米財務省の月次財政報告によると、2026会計年度の最初の9カ月間の累積財政赤字は1兆4,000億ドルとなり、前年同期を290億ドル上回った。6月単月では歳入4,960億ドル、歳出6,160億ドルで赤字は1,200億ドル。6月末時点の国債残高は31兆7,000億ドルと、1年前から2兆7,000億ドル増加した。関税収入の増加はあるものの、2025年の減税法による歳入減と高水準の利払いが赤字を押し上げており、通年で2兆ドル規模に達する見通しが強まっている。",
+      "source": "Committee for a Responsible Federal Budget (CRFB)",
+      "url": "https://www.crfb.org/press-releases/treasury-confirms-14-trillion-fy-2026-deficit-so-far-higher-2025",
+      "date": "2026-07-10",
+      "tags": [
+        "アメリカ",
+        "財政赤字",
+        "国債残高",
+        "関税"
+      ]
+    },
+    {
+      "id": "int-20260713-korea-800cho",
+      "category": "international",
+      "subcategory": "korea",
+      "title": "韓国、2027年度予算は初の800兆ウォン超へ ― 半導体増収を背景に2桁の歳出増",
+      "summary": "韓国の朴弘根（パク・ホングン）企画財政部長官は2026年7月13日、2027年度の総支出が初めて800兆ウォン（約5,360億ドル）を超え、前年比10%以上増えるとの見通しを示した。半導体ブームによる税収増を背景とした初の2桁成長で、AIハードウェアの整備、電力網の近代化（AIグリッド）、研究開発体制の構造改革を優先する。同時に50兆ウォン規模の歳出構造改革も進める方針。ただし将来基金構想をめぐっては、財政への過度な依存を懸念する指摘も出ている。",
+      "source": "Seoul Economic Daily",
+      "url": "https://en.sedaily.com/finance/2026/07/13/breaking-news-koreas-2026-spending-to-top-800-trillion-won",
+      "date": "2026-07-13",
+      "tags": [
+        "韓国",
+        "予算",
+        "半導体",
+        "AI投資"
+      ]
+    },
+    {
+      "id": "int-20260714-uk-reeves-mansion",
+      "category": "international",
+      "subcategory": "uk",
+      "title": "英リーブス財務相、マンションハウス演説で財政の信認を強調 ― 政権交代観測のなかでの最後の演説に",
+      "summary": "英国のリーブス財務相は2026年7月14日、ロンドン金融街での恒例のマンションハウス演説を行い、財政の安定と信認を最優先する自らの実績を擁護した。金融サービスにおけるAI活用の推進も打ち出している。バーナム氏の首相就任観測に伴い財務相交代が取り沙汰されるなかでの演説となり、事実上の最後の演説になるとの見方も出た。7月7日にはOBRが債務の長期的な持続不可能性を警告しており、次期政権が財政ルールをどう扱うかが焦点となる。",
+      "source": "GOV.UK",
+      "url": "https://www.gov.uk/government/speeches/rachel-reeves-mansion-house-2026-speech",
+      "date": "2026-07-14",
+      "tags": [
+        "イギリス",
+        "財務相",
+        "財政規律",
+        "金融"
+      ]
+    },
+    {
+      "id": "int-20260715-korea-hosei-kengen",
+      "category": "international",
+      "subcategory": "korea",
+      "title": "韓国、半導体増収の再配分へ補正予算の権限拡大を検討",
+      "summary": "韓国政府は、半導体ブームによる税収の上振れ分を機動的に再配分するため、補正予算の編成権限を拡大する案を検討している。2026年度は超過税収を原資に「借金のない補正」を実現したが、税収が特定産業の好況に依存する構造は歳入の変動リスクを高める。景気変動に応じて迅速に財政出動できる仕組みを整える狙いがある一方、国会の予算統制が弱まることへの懸念や、一時的な増収を恒久的な歳出に充てることへの批判も出ている。",
+      "source": "KED Global",
+      "url": "https://www.kedglobal.com/policy/newsView/ked202607150014",
+      "date": "2026-07-15",
+      "tags": [
+        "韓国",
+        "補正予算",
+        "税収",
+        "財政運営"
+      ]
+    },
+    {
+      "id": "int-20260714-korea-2027budget",
+      "category": "international",
+      "subcategory": "korea",
+      "title": "韓国、2027年度予算案は過去最大の5,360億ドル規模 ― 技術投資を最優先",
+      "summary": "韓国政府が示した2027年度予算案は過去最大の5,360億ドル（約800兆ウォン）規模となる。AI・半導体を中心とする技術投資を最優先に据え、エネルギーインフラや研究開発体制の刷新に重点配分する。積極的な財政出動で成長を確保する戦略だが、国家債務の増加ペースに対してはIMFも中期的な財政健全性の悪化をリスクとして指摘しており、増収局面での歳出拡大が景気後退時に硬直性をもたらす懸念もある。",
+      "source": "KED Global",
+      "url": "https://www.kedglobal.com/economy/newsView/ked202607140003",
+      "date": "2026-07-14",
+      "tags": [
+        "韓国",
+        "予算",
+        "技術投資",
+        "国家債務"
+      ]
+    },
+    {
+      "id": "res-20260301-oecd-health",
+      "category": "research",
+      "subcategory": "intl_report",
+      "title": "OECD「医療費支出の最新動向と見通し」（Health Working Papers No.193）",
+      "summary": "OECDが2026年3月に公表した医療費支出に関するワーキングペーパー。2025〜26年までの公的医療支出の動向と見通しを分析する。高齢化と医療技術の高度化により医療費の伸びが各国財政を圧迫する構図を、国際比較データで示している。日本でも2026年度の診療報酬改定（本体+3.09%）や高額療養費の見直しが進むなか、医療費の伸びを財政的にどう管理するかという共通課題を考える基礎資料となる。",
+      "source": "OECD",
+      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/03/latest-health-spending-trends-and-outlook_2db269d5/9fc8d4b1-en.pdf",
+      "date": "2026-03-01",
+      "tags": [
+        "OECD",
+        "医療費",
+        "国際比較",
+        "高齢化"
+      ]
+    },
+    {
+      "id": "dig-20260723",
+      "category": "digest",
+      "title": "今日の財政ニュースまとめ（2026年7月23日）",
+      "summary": "今回は手薄だった国際機関レポートと英語論文を中心に拡充した。IMFは7月8日、世界経済見通しの改訂版を公表し、世界成長率を2026年3.0%、2027年3.4%と4月からほぼ据え置いた一方、ディスインフレの足踏みでインフレ見通しを4.7%へ上方修正した。財政面では、主要国の高水準の公的債務が国債市場を財政持続性の再評価にさらしていると警告し、エネルギー支援の解除と財政余地の再建を促している。日本で7月に起きた長期金利急騰は、まさにこの警告が現実になった事例といえる。OECDは報告書「財政の再建」で、加盟国の歳出削減が医療・年金・政府運営経費に集中している実態を示した。高齢化と防衛需要が重なるなかで、どの国も同じ分野に切り込まざるを得ない構図が浮かぶ。欧州委員会はドイツの年金改革の選択肢を、IZAのディスカッションペーパーは労働所得税の累進性と組み合わせた社会保障改革の設計を論じており、いずれも日本の保険料負担の議論と重なる。各国の動きも対照的だ。米国は2026会計年度の9カ月で赤字が1.4兆ドルに達し、債務は31.7兆ドルへ膨らんだ。韓国は半導体増収を背景に2027年度予算を初の800兆ウォン超とし、AI・電力網に重点配分する一方、増収の再配分に向けた補正予算の権限拡大も検討する。英国ではリーブス財務相が政権交代観測のなかで財政の信認を訴えた。増収を追い風に拡張する国と、債務と金利に縛られる国の差が鮮明になっている。",
+      "source": "編集部まとめ（AI生成）",
+      "date": "2026-07-23",
+      "tags": [
+        "IMF",
+        "OECD",
+        "国際比較",
+        "韓国",
+        "アメリカ"
       ]
     }
   ]
