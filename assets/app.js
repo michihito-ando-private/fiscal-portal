@@ -57,6 +57,13 @@ let allArticles = [];
 let currentCategory = "all";
 let currentSubcategory = "all";
 let currentQuery = "";
+let archiveOpen = false;
+let baseDate = null; // データ最終更新日。これを基準に「最近」と「アーカイブ」を分ける
+
+// 基準日からこの日数以内を「最近の記事」とする。ただし絞り込み結果の上位
+// MIN_VISIBLE 件は、日付が古くても最近扱いにして必ず表示する（空振り防止）
+const RECENT_DAYS = 30;
+const MIN_VISIBLE = 8;
 
 function formatDate(iso) {
   const d = new Date(iso + "T00:00:00");
@@ -73,6 +80,44 @@ function formatDateTime(iso) {
 function subLabel(article) {
   const subs = SUBCATEGORIES[article.category];
   return (subs && subs[article.subcategory]) || null;
+}
+
+function renderCard(a) {
+  const sub = subLabel(a);
+  return `
+    <article class="card cat-${a.category}">
+      <div class="card-meta">
+        <span class="badge badge-${a.category}">${CATEGORY_LABELS[a.category] || a.category}</span>
+        ${sub ? `<span class="sub-label sub-${a.category}">${sub}</span>` : ""}
+        <time datetime="${a.date}">${formatDate(a.date)}</time>
+      </div>
+      <h2 class="card-title">${
+        a.url
+          ? `<a href="${a.url}" target="_blank" rel="noopener noreferrer">${a.title}</a>`
+          : a.title
+      }</h2>
+      <p class="card-summary">${a.summary}</p>
+      <div class="card-footer">
+        <span class="card-source">${a.source ? `出典: ${a.source}` : ""}</span>
+        <span class="tag-list">${(a.tags || []).map((t) => `<span class="tag" data-tag="${t}">#${t}</span>`).join("")}</span>
+      </div>
+    </article>`;
+}
+
+// 絞り込み結果を「最近」と「アーカイブ」に分割する。
+// 新しい順に並んだ配列の先頭から、基準日から RECENT_DAYS 以内の記事を最近とする。
+// ただし最低 MIN_VISIBLE 件は日付を問わず最近扱いにして必ず表示する。
+function splitRecentArchive(sorted) {
+  if (!baseDate) return [sorted, []];
+  const threshold = baseDate.getTime() - RECENT_DAYS * 86400000;
+  let idx = sorted.length;
+  for (let i = 0; i < sorted.length; i++) {
+    if (i >= MIN_VISIBLE && new Date(sorted[i].date + "T00:00:00").getTime() < threshold) {
+      idx = i;
+      break;
+    }
+  }
+  return [sorted.slice(0, idx), sorted.slice(idx)];
 }
 
 function render() {
@@ -95,31 +140,33 @@ function render() {
 
   filtered.sort((a, b) => (a.date < b.date ? 1 : -1));
 
-  list.innerHTML = filtered
-    .map((a) => {
-      const sub = subLabel(a);
-      return `
-    <article class="card cat-${a.category}">
-      <div class="card-meta">
-        <span class="badge badge-${a.category}">${CATEGORY_LABELS[a.category] || a.category}</span>
-        ${sub ? `<span class="sub-label sub-${a.category}">${sub}</span>` : ""}
-        <time datetime="${a.date}">${formatDate(a.date)}</time>
-      </div>
-      <h2 class="card-title">${
-        a.url
-          ? `<a href="${a.url}" target="_blank" rel="noopener noreferrer">${a.title}</a>`
-          : a.title
-      }</h2>
-      <p class="card-summary">${a.summary}</p>
-      <div class="card-footer">
-        <span class="card-source">${a.source ? `出典: ${a.source}` : ""}</span>
-        <span class="tag-list">${(a.tags || []).map((t) => `<span class="tag" data-tag="${t}">#${t}</span>`).join("")}</span>
-      </div>
-    </article>`;
-    })
-    .join("");
+  const [recent, archived] = splitRecentArchive(filtered);
 
+  let html = recent.map(renderCard).join("");
+
+  if (archived.length > 0) {
+    html += `
+      <div class="archive-block">
+        <button class="archive-toggle" id="archive-toggle" aria-expanded="${archiveOpen}">
+          ${archiveOpen ? "▲ 過去の記事を隠す" : `▼ 過去の記事を表示（${archived.length}件）`}
+        </button>
+      </div>`;
+    if (archiveOpen) {
+      html += `<div class="archive-divider"><span>ここから過去の記事</span></div>`;
+      html += archived.map(renderCard).join("");
+    }
+  }
+
+  list.innerHTML = html;
   empty.hidden = filtered.length > 0;
+
+  const toggle = document.getElementById("archive-toggle");
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      archiveOpen = !archiveOpen;
+      render();
+    });
+  }
 }
 
 function renderSubtabs() {
@@ -144,6 +191,7 @@ function renderSubtabs() {
       box.querySelectorAll(".subtab").forEach((s) => s.classList.remove("active"));
       subtab.classList.add("active");
       currentSubcategory = subtab.dataset.subcategory;
+      archiveOpen = false;
       render();
     });
   });
@@ -154,6 +202,8 @@ async function init() {
     const res = await fetch("data/news.json", { cache: "no-store" });
     const data = await res.json();
     allArticles = data.articles || [];
+    baseDate = new Date(data.lastUpdated);
+    if (isNaN(baseDate)) baseDate = new Date();
     document.getElementById("last-updated").textContent = formatDateTime(data.lastUpdated);
     render();
   } catch (e) {
@@ -170,6 +220,7 @@ document.querySelectorAll(".tab").forEach((tab) => {
     tab.classList.add("active");
     currentCategory = tab.dataset.category;
     currentSubcategory = "all";
+    archiveOpen = false;
     renderSubtabs();
     render();
   });
@@ -177,6 +228,7 @@ document.querySelectorAll(".tab").forEach((tab) => {
 
 document.getElementById("search-box").addEventListener("input", (e) => {
   currentQuery = e.target.value;
+  archiveOpen = false;
   render();
 });
 
@@ -186,6 +238,7 @@ document.getElementById("article-list").addEventListener("click", (e) => {
     const box = document.getElementById("search-box");
     box.value = tag.dataset.tag;
     currentQuery = tag.dataset.tag;
+    archiveOpen = false;
     render();
   }
 });
