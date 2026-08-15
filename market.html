@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>市場データ | 財政情報ポータル</title>
+  <meta name="description" content="日経平均・ダウ・S&P500のPER、国債利回り、イールドスプレッドの推移">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=20260815a">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        <h1 class="site-title"><span class="title-mark">¥</span> 財政情報ポータル</h1>
+        <p class="site-subtitle">Fiscal Policy Watch — 日本と世界の財政・社会保障を追う</p>
+      </div>
+      <p class="update-info">市場データ 最終更新: <time id="last-updated">読み込み中…</time></p>
+    </div>
+  </header>
+
+  <nav class="category-nav">
+    <div class="container nav-inner">
+      <div class="tabs">
+        <a class="tab" href="index.html">← ニュース一覧へ戻る</a>
+        <span class="tab active">市場データ<span class="tab-note">PER・利回り・スプレッド</span></span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <p class="market-intro">
+      日経平均株価・ダウ平均・S&amp;P500について、<strong>株価収益率（PER）</strong>、<strong>益回り</strong>、
+      対応する<strong>10年国債利回り</strong>（日本株は日本国債、米国株は米国債）、および
+      <strong>イールドスプレッド</strong>（益回り − 国債利回り）の推移を示します。
+      イールドスプレッドは株式の割安・割高の目安で、値が大きいほど株式が債券に対して割安とされます。
+    </p>
+    <div id="notice" class="notice" hidden></div>
+
+    <section class="chart-section">
+      <h2 class="chart-title">イールドスプレッド（益回り − 国債利回り, %）</h2>
+      <p class="chart-note">プラスが大きいほど株式は債券より割安。ゼロ近辺・マイナスは割高の目安。</p>
+      <div class="chart-box"><canvas id="chart-ys"></canvas></div>
+    </section>
+
+    <section class="chart-section">
+      <h2 class="chart-title">株価収益率（PER, 倍）</h2>
+      <p class="chart-note">株価が1株当たり利益の何倍かを示す。高いほど割高とされる。</p>
+      <div class="chart-box"><canvas id="chart-per"></canvas></div>
+    </section>
+
+    <section class="chart-section">
+      <h2 class="chart-title">10年国債利回り（%）</h2>
+      <p class="chart-note">日経平均は日本国債、ダウ・S&amp;P500は米国債の10年物利回り。</p>
+      <div class="chart-box"><canvas id="chart-bond"></canvas></div>
+    </section>
+
+    <section class="chart-section">
+      <h2 class="chart-title">益回り（Earnings Yield, %）</h2>
+      <p class="chart-note">PERの逆数（1株当たり利益 ÷ 株価）。国債利回りと比較するための指標。</p>
+      <div class="chart-box"><canvas id="chart-ey"></canvas></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>データ出典: multpl.com（S&amp;P500 PER）、nikkei225jp.com（日経平均加重平均PER）、worldperatio.com（ダウPER）、Yahoo Finance（国債利回り）。</p>
+      <p>本データは参考情報であり、正確性・完全性を保証するものではありません。投資判断はご自身の責任で行ってください。</p>
+    </div>
+  </footer>
+
+  <script src="assets/market.js?v=20260815a"></script>
+</body>
+</html>
