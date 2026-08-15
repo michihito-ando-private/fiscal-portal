@@ -256,4 +256,22 @@
 
 ---
 
+## 2026-08-15 (2): 市場データページを追加
+
+### やったこと
+- `dispatch_trial/yield_spread_log.csv`（日経平均・S&P500・ダウのPER/益回り/国債利回り/イールドスプレッド、2025/1〜2026/8）を可視化するページを新設
+- 変換: CSV → `data/market.json`（N225の表記ゆれ3件をNikkei225に統合）
+- `market.html` + `assets/market.js`: Chart.js（CDN）で4指標×3指数の折れ線グラフ。イールドスプレッド/PER/国債利回り/益回りの4枚
+- トップページのヘッダに「📈 市場データ」リンクを追加。配色・ヘッダ/フッタは既存と統一、noindexも付与
+- 公開URL: https://michihito-ando-private.github.io/fiscal-portal/market.html
+
+### 更新の運用メモ
+- 市場データを更新するには、`dispatch_trial/yield_spread_log.csv` を最新化した後、CSV→`fiscal_portal/data/market.json` の変換を再実行してコミットする（変換ロジックは同日のコミット参照。N225→Nikkei225の統合を忘れずに）
+
+### 残タスク
+- [ ] `ANTHROPIC_API_KEY` のSecrets登録（継続）
+- [ ] 市場データの定期更新をニュース更新と連動させるか検討
+
+---
+
 （次回の作業をここに追記）
