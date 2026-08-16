@@ -4,6 +4,7 @@ const CATEGORY_LABELS = {
   international: "国際",
   research: "論文・レポート",
   government: "政府資料",
+  stakeholder: "団体・提言",
   digest: "今日のまとめ",
 };
 
@@ -48,10 +49,19 @@ const SUBCATEGORIES = {
     cfa: "こども家庭庁",
     gov_other: "その他省庁",
   },
+  stakeholder: {
+    medical: "医療・介護団体",
+    insurer: "保険者・年金関係",
+    labor_mgmt: "労使団体",
+    education: "教育団体",
+    citizen: "当事者・市民団体",
+    academic: "学会・専門家集団",
+    stake_other: "その他の団体",
+  },
 };
 
 // サブカテゴリ行の見出し
-const SUBTAB_HEADINGS = { research: "種別:", government: "省庁:" };
+const SUBTAB_HEADINGS = { research: "種別:", government: "省庁:", stakeholder: "団体:" };
 
 let allArticles = [];
 let currentCategory = "all";

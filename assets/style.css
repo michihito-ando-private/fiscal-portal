@@ -10,6 +10,7 @@
   --c-international: #7c4dab;
   --c-research: #b06a1f;
   --c-government: #0f766e;
+  --c-stakeholder: #8a5a2b;
   --c-digest: #a83a4e;
 }
 
@@ -147,6 +148,7 @@ body {
 .tab-international.active { background: var(--c-international); border-color: var(--c-international); }
 .tab-research.active { background: var(--c-research); border-color: var(--c-research); }
 .tab-government.active { background: var(--c-government); border-color: var(--c-government); }
+.tab-stakeholder.active { background: var(--c-stakeholder); border-color: var(--c-stakeholder); }
 .tab-digest.active { background: var(--c-digest); border-color: var(--c-digest); }
 
 .search-box {
@@ -204,6 +206,7 @@ body {
 .subtabs-international .subtab.active { background: var(--c-international); border-color: var(--c-international); }
 .subtabs-research .subtab.active { background: var(--c-research); border-color: var(--c-research); }
 .subtabs-government .subtab.active { background: var(--c-government); border-color: var(--c-government); }
+.subtabs-stakeholder .subtab.active { background: var(--c-stakeholder); border-color: var(--c-stakeholder); }
 
 /* ---------- Articles ---------- */
 main { padding: 26px 0 50px; }
@@ -238,6 +241,7 @@ main { padding: 26px 0 50px; }
 .card.cat-international { border-top-color: var(--c-international); }
 .card.cat-research { border-top-color: var(--c-research); }
 .card.cat-government { border-top-color: var(--c-government); }
+.card.cat-stakeholder { border-top-color: var(--c-stakeholder); }
 
 /* 今日のまとめ: 横幅いっぱいの読み物カード */
 .card.cat-digest {
@@ -272,6 +276,7 @@ main { padding: 26px 0 50px; }
 .badge-international { background: var(--c-international); }
 .badge-research { background: var(--c-research); }
 .badge-government { background: var(--c-government); }
+.badge-stakeholder { background: var(--c-stakeholder); }
 .badge-digest { background: var(--c-digest); }
 
 /* テーマ（サブカテゴリ）チップ */
@@ -288,6 +293,7 @@ main { padding: 26px 0 50px; }
 .sub-international { color: var(--c-international); border-color: var(--c-international); }
 .sub-research { color: var(--c-research); border-color: var(--c-research); }
 .sub-government { color: var(--c-government); border-color: var(--c-government); }
+.sub-stakeholder { color: var(--c-stakeholder); border-color: var(--c-stakeholder); }
 
 .card-title {
   font-size: 1.02rem;
