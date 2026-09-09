@@ -3,13 +3,15 @@ const INDEX_LABELS = {
   Nikkei225: "日経平均",
   SP500: "S&P500",
   DowJones: "ダウ平均",
+  EuroStoxx50: "ユーロ・ストックス50",
 };
 
-// サイトのカテゴリ色を流用（日本=えんじ、S&P500=青、ダウ=緑）
+// サイトのカテゴリ色を流用（日本=えんじ、S&P500=青、ダウ=緑、欧州=紫）
 const INDEX_COLORS = {
   Nikkei225: "#a83a4e",
   SP500: "#2563a8",
   DowJones: "#1e7f4f",
+  EuroStoxx50: "#7c4dab",
 };
 
 function formatDate(iso) {
