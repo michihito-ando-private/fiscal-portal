@@ -722,4 +722,58 @@ CSVは9/8のまま更新なし
 
 ---
 
+## 2026-09-15 (2): 論文・レポートの重点補強（10件、計268件）
+
+### 依頼
+「論文・レポートを充実させてください。」
+
+### 成果
+| サブカテゴリ | 更新前 | 更新後 |
+|---|---|---|
+| paper_en（英語論文） | 4件（最新8/10） | **11件（最新9/1）** |
+| paper_ja（日本語論文） | 3件（最新8/1） | **5件（最新9/1）** |
+| intl_report（国際機関） | 9件（最新8/10） | 10件（最新は8/10のまま） |
+| report_ja（日本語レポート） | 18件 | 18件 |
+
+### 追加した記事（10件）
+**英語論文7本**
+- NBER w35725「How Disability Benefits in Early Life Affect Adult Outcomes」Deshpande / Voena / Weitze（9月）。子ども期のSSI受給が成人後の帰結に与える効果は一様でなく、**親の就労収入の反応によって異なる**
+- NBER w35748「Does Information Influence the Choice between Social Security Disability and Early Retirement Benefits?」Anand / Phu-Duyen / Slavov（9月）。社会保障ステートメント受領が62歳〜満額支給開始年齢層の選択を変えるか
+- NBER w35751「Did the Affordable Care Act Save Lives?」Gangopadhyaya / Schiman / Kaestner（9月）。**メディケイド拡大の効果を除いた**ACAの正味の死亡率への影響
+- NBER w35755「The Macroeconomic Returns to School Finance Reforms」C. Kirabo Jackson（9月）。教育投資の私的収益がマクロの利得に結びつくか
+- NBER w35747「Automation and Optimal Taxation: A Task-Based Theory」Kleven / Zidar（9月）。**課税ベースが労働から資本へ移る**と賃金課税ベースの社会保険料が先細りする
+- RIETI 26-E-047「Small Benefit Cuts and Earnings Responses」松本広大（6月）。2013〜15年の生活保護基準改定、級地別の削減幅の差でDID。収入ゼロ層で月約4,000円の小幅増にとどまり、就労層は変化なし
+- RIETI 26-E-060「The Effect of Class-size Reduction on Quality of Classroom Environment」杉田聡一郎 / 中室牧子（8月）
+
+**日本語論文2本**
+- RIETI 26-J-036「日本の公立病院における効率性と全要素生産性の決定要因」石川貴幸 / 乾友彦（9月）。2007〜2023年、確率的フロンティア分析。**競争環境は効率性を高め、補助金依存は下げる**。医療従事者の年齢とTFPは逆U字
+- RIETI 26-J-021「近すぎて通えない：学習支援事業の教育効果と社会的スティグマによる参加回避」浅川慎介ほか（4月）。**教室が通学区内にあると参加率が下がる**（福祉スティグマ）。継続参加者は学習時間が週4〜5時間長い
+
+**国際機関レポート1本**
+- OECD「Restoring Public Finances ― Enabling Effective Government」（5/27）。公的債務GDP比約110%、加盟国の約半数が2023〜27年にPB悪化見通し。**89%が社会保障・医療で、77%が政府運営で削減策**。削減が2分野に集中するのは公的支出の約半分を占めるため
+
+### 論文の探し方（重要な手順）
+**WebSearchでは学術論文はほぼ拾えない**（一般論・古い論文ばかり返る）。以下が有効だった：
+- **NBER**: WebFetchもブラウザのget_page_textも「No data available」（JS読み込み）。**ブラウザのjavascript_toolでAPIを直接叩く**のが確実:
+  `fetch('/api/v1/working_page_listing/contentType/working_paper/_/_/search?page=1&perPage=40&sortBy=public_date&sortDirection=DESC')`
+  → 返るオブジェクトの `url`（例 `/papers/w35725`）`title` `authors` `abstract` `displaydate` を使う。**`authors` は配列やオブジェクトのことがあるので文字列化してから処理する**
+- **RIETI**: `rieti.go.jp/jp/publications/act_dp2026.html`（日本語）と `act_dp_en2026.html`（英語）をWebFetchすると番号・タイトル・著者・公表年月が一覧で読める。個別URLはブラウザの `find` で拾う（`/jp/publications/summary/26090005.html` 形式）。**要旨は summary ページをWebFetchすれば日本語で読める**
+- **IMF**: `imf.org/en/Publications/WP` はWebFetch 403 → **ブラウザなら読める**。ただし検索フィルタのページはJS依存で結果が出ない
+- **OECD**: 個別の刊行物ページもWebFetch 403 → **ブラウザで読むと公表日（27 May 2026）と主要数値が取れる**
+- 財務総研（フィナンシャル・レビュー）は一覧ページの最新号が第163号までしか読めず、2026年の号は未確認
+
+### 不具合と修正
+- **まとめ記事を未来日付で作りかけた。** 当日分（dig-20260915）が既にあるのに dig-20260916 を新規作成していた。**まとめは1日1本**なので、論文パートを当日分の末尾に統合して重複を解消。`date` コマンドでの日付確認を先にやっていたのに、記事本数が多く作業が長引いた結果、日付が変わる前提で id を作ってしまった
+- **英単語の混入1件**（「社会全体の利得に translate するかは不確かで」）。チェックに**小文字始まりの英単語の検出**を追加した（人名・略語は大文字始まりなので誤検出しない）。ただし英語の論文タイトルを「」や引用符で囲んで本文に書く場合があるため、**引用符内を除外してから判定する**必要がある（IMFのWEO副題の "and" で誤検出した）
+
+### 残課題
+- intl_report は最新が8/10のまま（今回追加したOECD報告は5/27）。IMF/OECDの9月公表分を次回探す
+- 財務総研の2026年の論文・フィナンシャル・レビュー
+- IZA/CEPR/有力大学WPは未着手（IZAは一覧ページの取得方法を要確認）
+- 経済学5大誌・2nd tier誌・トップフィールド誌からの収録は未着手
+- 生活保護基準部会 第61回（9/15）の結果
+- リポジトリSecretsの `ANTHROPIC_API_KEY` は未設定
+
+---
+
 （次回の作業をここに追記）
