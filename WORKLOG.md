@@ -863,4 +863,50 @@ CSVが9/15まで伸びていたので `market.json` を更新。**9/15の長期�
 
 ---
 
+## 2026-09-18 (2): 経済学主要誌への到達経路を確立、6本収録（計285件）
+
+### 問い
+「経済学5大誌・トップフィールド誌に到達できなかったのは、自動スクリーニングを拒否する設定だから？」
+
+### 検証結果：**拒否が原因ではなかった**（一部を除く）
+| 経路 | 結果 |
+|---|---|
+| **RePEc** `ideas.repec.org/s/<publisher>/<journal>.html` | ✅ **全文読める。** AER 116巻9号もJPubE 2026年分も巻号・論文タイトル・著者が一覧で取れる。個別論文ページでアブストラクトも読める |
+| **AEA** `aeaweb.org` | ✅ **読める。** ただし `/journals/aer/issues` は号のリンクのみ。号別ページ `/issues/859` で目次、`/articles?id=10.1257/aer.XXXXXXXX` でアブストラクトが取れる |
+| **ScienceDirect（Elsevier）** | ❌ **403。実際にブロックしている**（JPubE・EER・JHEなどの版元） |
+| **Oxford Academic（QJE, REStud, JEEA）** | △ ページは開くが `/qje/issue` に目次がない。号別URLの特定が必要 |
+
+**要点: Elsevierだけは本当に拒否しているが、RePEcがそのElsevier誌もミラーしているので迂回できる。** これまで到達できなかったのはサイト側の制限ではなく、WebSearchで論文を探そうとしていたことが原因だった（検索は一般論や古い論文を返す）。
+
+### 追加した記事（6件、すべてpaper_en）
+**American Economic Review 第116巻第9号（2026年9月）**
+- Kennedy / Dobridge / Landefeld / Mortenson「Corporate Tax Cuts, Firm Growth, and Workers' Earnings」。米国史上最大の法人所得税減税。投資・売上・利益・雇用・給与総額はいずれも増加したが、**短期的には民間所得増の87%が上位10%に流入**
+- Dahlstrand「Defying Distance? The Provision of Medical Services in the Digital Age」。スウェーデンのオンライン診療で患者と医師が無作為割当。高リスク患者を有効な医師とマッチングさせると**救急外来受診4.4%減、不適切な抗生物質使用3.1%減**
+- Duflo / Dupas / Spelke / Walsh「Intergenerational Impacts of Secondary Education」。ガーナのRCT＋15年追跡。**1歳未満死亡率が半減**、受給女性の子の認知発達が5歳までに0.24SD向上、**便益は費用の約4.1倍**
+
+**Journal of Public Economics（2026年）**
+- He / Ning / Zhu（261巻）中国の年金改革。1995〜2009年の**家計貯蓄率上昇の約25%、労働供給急増の49%**を説明、高齢化が増幅
+- Bates / Johnston（260巻）「Do pensions enhance effort and selective retention?」**年金の支給適格性を超えて実効報酬が50%以上下がっても教員の努力・成果は落ちず、労働力構成の変化もなし**。年金＝人材確保手段という前提を否定
+- Mukherjee / Sacks / Yoo（260巻）メディケイド拡大の消費平準化価値。高卒未満で大きく高学歴でほぼゼロだが精度は低く、**既存の消費データでは保険価値を正確に推定できない**と結論
+
+### 手順メモ
+1. RePEcの雑誌ページで巻号一覧と論文タイトルを把握（`ideas.repec.org/s/aea/aecrev.html`、`/s/eee/pubeco.html`）
+2. **URLは推測せずブラウザの `find` で実際のhrefを取る**（今回 `v261y2026ics00472727260014
+52.html` のような形式を推測して404を出した）
+3. 個別ページをWebFetchしてアブストラクトを取得
+4. **RePEcは年と巻しか示さず月が出ない。**JPubEは2026年が253〜261巻なのでほぼ月刊（253=1月…261=9月）と推定できる。記事本文には「第261巻（2026年）」と検証できる範囲だけ書き、dateフィールドは並び順の都合で推定月を使う
+
+### その他
+- まとめ記事は本日分（dig-20260918）に追記して統合。**1日1本のルールを維持**
+
+### 残課題
+- QJE / REStud / JPE / Econometrica（Oxford Academic・シカゴ大出版・Wiley）の号別URLの特定
+- 2nd tier（AEJ系 / REStat / EJ）とトップフィールド（JHE / JoLE / JHR / EER）
+- intl_report は8/10のまま（IMF財政モニターの10月公表を待つ）
+- 第一生命経済研・大和総研の最新レポート一覧の入口
+- 生活保護基準部会 第61回（9/15）の結果、臨時国会（10/5ごろ）
+- リポジトリSecretsの `ANTHROPIC_API_KEY` は未設定
+
+---
+
 （次回の作業をここに追記）
