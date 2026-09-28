@@ -180,7 +180,12 @@ PROMPT_TEMPLATE = """あなたは日本の財政情報ポータルサイトの�
 
 さらに、新着記事が1件以上ある場合は、**配列の最後に category "digest" のまとめ記事を必ず1件**追加すること:
 - title: 「今日の財政ニュースまとめ（YYYY年M月D日）」
-- summary: その回の新着記事全体を俯瞰した要約・解説を400〜600字の日本語で書く。単なる列挙ではなく、何が起きたのか・なぜ重要か・記事同士や これまでの動きとのつながりが分かる解説にする。
+- **sections: 分野ごとに分けて書く（必須）。** 新着記事があった分野だけを、次の形式の配列で出力する:
+  `[{{"cat": "research", "label": "論文・レポート", "text": "…"}}, {{"cat": "expenditure", "label": "歳出", "text": "…"}}, …]`
+  - cat は expenditure / revenue / international / research / government / stakeholder のいずれか。label は歳出 / 歳入 / 国際 / 論文・レポート / 政府資料 / 団体・提言。
+  - text はその分野の新着を俯瞰した解説を150〜300字で。単なる列挙ではなく、何が起きたのか・なぜ重要か・これまでの動きとのつながりが分かるように書く。
+  - 並び順は新着本数の多い分野から。記事がなかった分野は入れない。
+- summary: 検索用に、各分野の text を「【分野名】本文」の形でつないだ全文を入れる（表示には sections が使われる）。
 - subcategory / url は不要。source は "編集部まとめ（AI生成）" とする。
 - date は今日の日付。
 
@@ -222,8 +227,20 @@ def validate(item: dict, known_urls: set) -> bool:
     if item["date"] > datetime.now(JST).strftime("%Y-%m-%d"):
         return False
     if item.get("category") == "digest":
-        # まとめ記事はURL・出典・サブカテゴリ不要
-        return {"title", "summary"}.issubset(item)
+        # まとめ記事はURL・出典・サブカテゴリ不要。分野別のsectionsを必須とする
+        if not {"title", "summary"}.issubset(item):
+            return False
+        secs = item.get("sections")
+        if not isinstance(secs, list) or not secs:
+            return False
+        return all(
+            isinstance(x, dict)
+            and x.get("cat") in CATEGORIES
+            and isinstance(x.get("label"), str)
+            and isinstance(x.get("text"), str)
+            and x["text"].strip()
+            for x in secs
+        )
     required = {"category", "title", "summary", "source", "url", "date"}
     if not required.issubset(item):
         return False
