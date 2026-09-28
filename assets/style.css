@@ -255,6 +255,42 @@ main { padding: 26px 0 50px; }
   line-height: 1.9;
 }
 
+/* 今日のまとめ: 分野ごとのセクション表示 */
+.digest-sections {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0.55rem 0 0.9rem;
+}
+.digest-section {
+  border-left: 3px solid var(--c-digest);
+  padding-left: 0.85rem;
+}
+.digest-section-title {
+  margin: 0 0 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--c-digest);
+}
+.digest-section p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: var(--ink);
+}
+.digest-section.sec-expenditure { border-left-color: var(--c-expenditure); }
+.digest-section.sec-expenditure .digest-section-title { color: var(--c-expenditure); }
+.digest-section.sec-revenue { border-left-color: var(--c-revenue); }
+.digest-section.sec-revenue .digest-section-title { color: var(--c-revenue); }
+.digest-section.sec-international { border-left-color: var(--c-international); }
+.digest-section.sec-international .digest-section-title { color: var(--c-international); }
+.digest-section.sec-research { border-left-color: var(--c-research); }
+.digest-section.sec-research .digest-section-title { color: var(--c-research); }
+.digest-section.sec-government { border-left-color: var(--c-government); }
+.digest-section.sec-government .digest-section-title { color: var(--c-government); }
+.digest-section.sec-stakeholder { border-left-color: var(--c-stakeholder); }
+.digest-section.sec-stakeholder .digest-section-title { color: var(--c-stakeholder); }
+
 .card-meta {
   display: flex;
   align-items: center;

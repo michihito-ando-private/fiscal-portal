@@ -106,7 +106,19 @@ function renderCard(a) {
           ? `<a href="${a.url}" target="_blank" rel="noopener noreferrer">${a.title}</a>`
           : a.title
       }</h2>
-      <p class="card-summary">${a.summary}</p>
+      ${
+        Array.isArray(a.sections) && a.sections.length
+          ? `<div class="digest-sections">${a.sections
+              .map(
+                (sec) => `
+        <section class="digest-section sec-${sec.cat || "other"}">
+          <h3 class="digest-section-title">${sec.label}</h3>
+          <p>${sec.text}</p>
+        </section>`
+              )
+              .join("")}</div>`
+          : `<p class="card-summary">${a.summary}</p>`
+      }
       <div class="card-footer">
         <span class="card-source">${a.source ? `出典: ${a.source}` : ""}</span>
         <span class="tag-list">${(a.tags || []).map((t) => `<span class="tag" data-tag="${t}">#${t}</span>`).join("")}</span>
