@@ -1127,6 +1127,41 @@ CSVは9/25のままで `market.json` も同日。更新なし
 「新しいニュースに限定」ルールは今回の緩和の対象外と解釈した。
 
 
+### 追記（2026-09-28 その3）: 「今日の財政ニュースまとめ」を分野別表示に変更
+
+ユーザー指示:**「『今日の財政ニュースまとめ』は分野ごとに分けて記入してください」**
+
+#### 実装（後方互換を維持）
+記事に**任意の `sections` 配列**を持たせ、あれば分野別の見出し付きで描画、なければ従来どおり `summary` を表示する形にした。**過去30本のまとめ記事は書き換え不要でそのまま動く。**
+
+```json
+"sections": [
+  {"cat": "research", "label": "論文・レポート", "text": "…"},
+  {"cat": "expenditure", "label": "歳出", "text": "…"}
+]
+```
+
+- `assets/app.js`: `renderCard()` に分岐を追加。`Array.isArray(a.sections) && a.sections.length` なら `.digest-sections` を出力し、各 `<section class="digest-section sec-{cat}">` に見出しと本文を入れる
+- `assets/style.css`: `.digest-sections` / `.digest-section` / `.digest-section-title` を追加。**左罫線と見出しの色を分野のカテゴリ色に合わせる**（歳出=青 #2563a8、歳入=緑 #1e7f4f、国際=紫 #7c4dab、論文=茶 #b06a1f、政府資料=teal #0f766e、団体=茶 #8a5a2b）
+- `index.html`: `?v=20260815b` → **`?v=20260928a`**
+- `scripts/update_news.py`: PROMPT_TEMPLATE に sections の出力形式（cat/label/text、各150〜300字、本数の多い分野順、記事がない分野は入れない）を明記。`validate()` でも digest の sections を必須チェック
+
+#### 検索との両立
+**検索は `a.summary` を参照している**（app.js 147行目の haystack）ため、sections だけにすると分野別の本文が検索に引っかからなくなる。
+→ **summary には各分野の本文を「【分野名】本文」の形で連結した全文を保持**し、表示には sections を使う二本立てとした。update_news.py の指示にも明記。
+
+#### ブラウザで検証済み
+- セクション6件（論文・レポート／歳出／歳入／国際／政府資料／団体・提言）が正しい順で描画
+- 左罫線と見出しの色が分野ごとに変わることを `getComputedStyle` で確認（rgb(176,106,31) / rgb(37,99,168) / rgb(30,127,79) / rgb(124,77,171) / rgb(15,118,110) / rgb(138,90,43)）
+- **旧まとめ記事が従来どおり `.card-summary` で描画されることも確認**（oldDigestStillRenders: true）
+
+#### 検証スクリプトの自己修正
+非日本語混入チェックに `a['title']` を含めてしまい、**英語論文の原題（"A Sin Ban, Not a Sin Tax? Consumption and Incidence of…"）の "and" を誤検出**した。タイトルは英語原題を含むのが正常なので、**走査対象は summary と sections の本文のみ**に戻した。
+
+#### 未対応（必要なら次回）
+過去30本のまとめ記事は一括のプロース形式のまま。遡って分野別に分割することも可能だが、本文の書き直しになるため今回は見送った。
+
+
 ---
 
 （次回の作業をここに追記）
