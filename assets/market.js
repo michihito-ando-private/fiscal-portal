@@ -14,6 +14,30 @@ const INDEX_COLORS = {
   EuroStoxx50: "#7c4dab",
 };
 
+// 10年国債利回りグラフは株価指数名ではなく国債名で表示する
+// （S&P500とダウは同じ米国債利回りを使うため1本に統合）
+const BOND_SOURCES = [
+  { key: "JGB10", label: "日本国債10年", color: INDEX_COLORS.Nikkei225, from: ["Nikkei225"] },
+  { key: "UST10", label: "米国債10年", color: INDEX_COLORS.SP500, from: ["SP500", "DowJones"] },
+  { key: "Bund10", label: "ドイツ国債10年", color: INDEX_COLORS.EuroStoxx50, from: ["EuroStoxx50"] },
+];
+
+function buildBondSeries(series) {
+  const out = {}, labels = {}, colors = {};
+  BOND_SOURCES.forEach((b) => {
+    const byDate = new Map();
+    b.from.forEach((idx) => (series[idx] || []).forEach((p) => {
+      if (!byDate.has(p.date) && p.bond != null) byDate.set(p.date, { date: p.date, bond: p.bond });
+    }));
+    if (byDate.size) {
+      out[b.key] = [...byDate.values()].sort((x, y) => x.date.localeCompare(y.date));
+      labels[b.key] = b.label;
+      colors[b.key] = b.color;
+    }
+  });
+  return { series: out, labels, colors };
+}
+
 function formatDate(iso) {
   const d = new Date(iso + "T00:00:00");
   if (isNaN(d)) return iso;
@@ -33,12 +57,12 @@ function toData(pts, labels, key) {
   return labels.map((d) => (map.has(d) ? map.get(d) : null));
 }
 
-function makeChart(canvasId, series, labels, key, unit) {
+function makeChart(canvasId, series, labels, key, unit, names = INDEX_LABELS, colors = INDEX_COLORS) {
   const datasets = Object.keys(series).map((idx) => ({
-    label: INDEX_LABELS[idx] || idx,
+    label: names[idx] || idx,
     data: toData(series[idx], labels, key),
-    borderColor: INDEX_COLORS[idx],
-    backgroundColor: INDEX_COLORS[idx],
+    borderColor: colors[idx],
+    backgroundColor: colors[idx],
     borderWidth: 2,
     pointRadius: 0,
     pointHoverRadius: 4,
@@ -97,7 +121,8 @@ async function init() {
     const labels = buildLabels(data.series);
     makeChart("chart-ys", data.series, labels, "ys", "%");
     makeChart("chart-per", data.series, labels, "per", "倍");
-    makeChart("chart-bond", data.series, labels, "bond", "%");
+    const bonds = buildBondSeries(data.series);
+    makeChart("chart-bond", bonds.series, labels, "bond", "%", bonds.labels, bonds.colors);
     makeChart("chart-ey", data.series, labels, "ey", "%");
   } catch (e) {
     const notice = document.getElementById("notice");
