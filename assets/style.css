@@ -461,6 +461,38 @@ main { padding: 26px 0 50px; }
   height: 340px;
 }
 
+/* データソース解説 */
+.market-intro a,
+.source-section a { color: var(--accent); }
+.source-section { font-size: 0.86rem; color: var(--ink-light); line-height: 1.8; scroll-margin-top: 84px; }
+.source-section h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 22px 0 8px;
+}
+.source-section p { margin: 8px 0; }
+.source-section strong { color: var(--ink); }
+.source-section ul { margin: 8px 0; padding-left: 1.3em; }
+.source-section li { margin: 4px 0; }
+.table-scroll { overflow-x: auto; margin: 8px 0 12px; }
+.source-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+.source-table th,
+.source-table td {
+  border: 1px solid var(--border);
+  padding: 7px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.source-table thead th { background: var(--bg); color: var(--ink); white-space: nowrap; }
+.source-table tbody th { color: var(--ink); font-weight: 700; white-space: nowrap; }
+
 /* 「ニュース一覧へ戻る」リンクをタブ風に */
 a.tab { text-decoration: none; }
 
