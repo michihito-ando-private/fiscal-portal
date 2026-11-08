@@ -67,95 +67,71 @@
 
     <section class="chart-section source-section" id="data-sources">
       <h2 class="chart-title">データソースと算出方法</h2>
-      <p class="chart-note">2026年11月4日時点の内容です。各サイトから取得した値を記録したログをもとに作成しています。</p>
+      <p class="chart-note">2026年11月8日時点の内容です。更新のたびに、下記の公開データから全期間を計算し直しています。</p>
 
       <h3>算出方法</h3>
       <ul>
         <li><strong>益回り（%）</strong> = 100 ÷ PER</li>
         <li><strong>イールドスプレッド（%）</strong> = 益回り − 10年国債利回り</li>
-        <li><strong>データの間隔</strong>：2026年3月までは月1点（月初の日付）、2026年4月以降は営業日ごとです。休場日と取得できなかった日の値はありません。</li>
+        <li><strong>データの間隔</strong>：2025年1月以降の営業日ごとです（ユーロ・ストックス50は2026年8月25日から）。株式市場か国債市場が休みの日は値がありません。</li>
       </ul>
 
       <h3>指数ごとの出所</h3>
       <div class="table-scroll">
         <table class="source-table">
           <thead>
-            <tr><th>指数</th><th>PERの出所</th><th>PERの種類</th><th>組み合わせる国債</th><th>収録開始</th></tr>
+            <tr><th>指数</th><th>PERの出所</th><th>PERの種類</th><th>日々の株価</th><th>組み合わせる国債</th></tr>
           </thead>
           <tbody>
-            <tr><th scope="row">日経平均</th><td>nikkei225jp.com</td><td>加重平均PER（予想利益ベース）</td><td>日本国債10年</td><td>2025年1月</td></tr>
-            <tr><th scope="row">S&amp;P500</th><td>multpl.com</td><td>過去12か月の実績利益ベース</td><td>米国債10年</td><td>2025年1月</td></tr>
-            <tr><th scope="row">ダウ平均</th><td>worldperatio.com</td><td>ダウ連動ETF（DIA）のPER</td><td>米国債10年</td><td>2026年4月13日</td></tr>
-            <tr><th scope="row">ユーロ・ストックス50</th><td>Yahoo Finance</td><td>連動ETF（EXW1.DE）のPER</td><td>ドイツ国債10年</td><td>2026年8月25日</td></tr>
+            <tr><th scope="row">日経平均</th><td>nikkei225jp.com</td><td>加重平均PER（予想利益ベース）</td><td>—</td><td>日本国債10年（nikkei225jp.com）</td></tr>
+            <tr><th scope="row">S&amp;P500</th><td>multpl.com</td><td>過去12か月の実績利益ベース</td><td>S&amp;P500終値（CNBC）</td><td>米国債10年（米財務省）</td></tr>
+            <tr><th scope="row">ダウ平均</th><td>worldperatio.com</td><td>ダウ連動ETF（DIA）のPER</td><td>DIA終値（Nasdaq）</td><td>米国債10年（米財務省）</td></tr>
+            <tr><th scope="row">ユーロ・ストックス50</th><td>Yahoo Finance</td><td>連動ETF（EXW1.DE）のPER</td><td>指数終値（CNBC）</td><td>ドイツ国債10年（ドイツ連邦銀行）</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h3>PERの取得方法</h3>
-      <p>S&amp;P500、ダウ平均、ユーロ・ストックス50の直近の値は、サイトの表示値ではなく、基点日のPERを株価の変化率で伸ばした<strong>推計値</strong>です。</p>
-      <div class="table-scroll">
-        <table class="source-table">
-          <thead>
-            <tr><th>指数</th><th>期間</th><th>取得方法</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row" rowspan="3">日経平均</th><td>2025年1月〜2026年3月</td><td>nikkei225jp.comの加重平均PER（月1点）</td></tr>
-            <tr><td>2026年4月22日〜25日</td><td>日経平均プロフィル（公式サイト）の加重平均PER</td></tr>
-            <tr><td>2026年4月27日〜現在</td><td>nikkei225jp.comの加重平均PER。未確定の日は推定値を入れ、確定後に修正</td></tr>
-            <tr><th scope="row" rowspan="3">S&amp;P500</th><td>2025年1月〜2026年3月</td><td>multpl.comの月次表（月1点）</td></tr>
-            <tr><td>2026年4月23日〜7月27日</td><td>multpl.comの表示値。確定値がない日は、近い日の確定値から推計</td></tr>
-            <tr><td>2026年7月28日〜現在</td><td><strong>推計値</strong>：7月27日のPER 28.53（^GSPC 7,413.18）を基点に、^GSPC終値の比率で算出</td></tr>
-            <tr><th scope="row" rowspan="2">ダウ平均</th><td>2026年4月13日〜7月30日</td><td>worldperatio.comの表示値。更新がない日は直近の値を使用し、6月22日以降は推計の日もあり</td></tr>
-            <tr><td>2026年7月31日〜現在</td><td><strong>推計値</strong>：7月30日のPER 24.63（DIA 521.51）を基点に、DIA終値の比率で算出</td></tr>
-            <tr><th scope="row">ユーロ・ストックス50</th><td>2026年8月25日〜現在</td><td><strong>推計値</strong>：9月2日のEXW1.DEのPER 18.71（^STOXX50E 6,362.15）を基点に、^STOXX50E終値の比率で算出</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <h3>PERの算出方法</h3>
+      <p>日経平均以外の3指数は、元サイトが日次の履歴を公開していないため、<strong>元サイトの値から1株利益を逆算し、毎日の終値をその1株利益で割って</strong>日次のPERを作っています。</p>
+      <ul>
+        <li><strong>日経平均</strong>：nikkei225jp.comの日次の加重平均PERをそのまま使っています。</li>
+        <li><strong>S&amp;P500</strong>：multpl.comの月次表のPERは「その月の株価の平均 ÷ 1株利益」です。この表から月ごとの1株利益を求め、その月の毎日の終値を割っています。こうして作った日次PERの月平均は、2025年1月〜2026年10月のすべての月で同サイトの月次表と一致します（差は0.01以内）。</li>
+        <li><strong>ダウ平均</strong>：worldperatio.comの月次PER（月末時点）と、月末のDIA終値から月ごとの1株利益を求め、その月の毎日のDIA終値を割っています。当月はサイトの最新値を使います。各月末の値は同サイトと一致しますが、月の途中で利益が更新された場合は、その月のすべての日に新しい利益が使われます。</li>
+        <li><strong>ユーロ・ストックス50</strong>：EXW1.DEのPERを確認した日（基準日）ごとに1株利益を求め、基準日の間は日数に応じて直線で補間しています。最新の基準日より後は、最新の値を使います。現在の基準日は2026年9月2日（18.71倍）、11月3日（18.21倍）、11月6日（18.30倍）です。</li>
+      </ul>
 
-      <h3>10年国債利回りの取得方法</h3>
-      <div class="table-scroll">
-        <table class="source-table">
-          <thead>
-            <tr><th>国債</th><th>出所</th><th>補足</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">日本国債10年</th><td>nikkei225jp.com</td><td>2026年5月18日以降は同サイトの確定値が中心です。それより前の日次データと取得できない日には、TradingEconomicsの値も使っています。</td></tr>
-            <tr><th scope="row">米国債10年</th><td>Yahoo Finance（^TNX）</td><td>2026年5月26日以降の中心です。それより前はTradingEconomicsまたはFREDの値です。Yahoo Financeに値がなかった6月22日は、multpl.comの値から推定しました。</td></tr>
-            <tr><th scope="row">ドイツ国債10年</th><td>欧州中央銀行（ECB）のデータAPI</td><td>公表が遅れるため、直近日はイールドスプレッドが出ないことがあります。2026年9月8日、15日、18日は前営業日の利回りを使っています。</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <h3>10年国債利回りの出所</h3>
+      <ul>
+        <li><strong>日本国債</strong>：nikkei225jp.comの日次データの10年国債利回り。</li>
+        <li><strong>米国債</strong>：米財務省が公表する「Daily Treasury Par Yield Curve Rates」の10年。</li>
+        <li><strong>ドイツ国債</strong>：ドイツ連邦銀行が上場連邦債から推計する利回り曲線（スヴェンソン法）の、残存10年の日次値（小数第2位まで）。</li>
+      </ul>
 
       <h3>利用上の注意</h3>
-      <p><strong>1. 米国株の直近のPERは、原サイトの最新値より高くなっています。</strong>推計値は利益が基点日から変わらないと仮定するため、その後の決算が反映されません。S&amp;P500とダウ平均のイールドスプレッドは、その分だけ低く出ています。</p>
-      <div class="table-scroll">
-        <table class="source-table">
-          <thead>
-            <tr><th>指数</th><th>比較日</th><th>当ページのPER</th><th>原サイトのPER</th><th>当ページのスプレッド</th><th>原サイトのPERで計算した場合</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">S&amp;P500</th><td>10月30日</td><td>29.17倍</td><td>25.86倍</td><td>−1.50%</td><td>−1.06%</td></tr>
-            <tr><th scope="row">ダウ平均</th><td>11月3日</td><td>24.42倍</td><td>20.90倍</td><td>−0.85%</td><td>−0.17%</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <p><strong>1. 過去の値も更新のたびに変わることがあります。</strong>multpl.comは決算の発表に合わせて1株利益を後から改定し、直近の数か月は推計値です。当ページは更新のたびに全期間を計算し直すため、改定が過去の値にも反映されます。</p>
+      <p><strong>2. 元サイトの表示値と少し違うことがあります。</strong>たとえば11月6日のS&amp;P500は、multpl.comの表示が25.14倍、当ページが24.98倍です。multpl.comは7,426.35を株価に使っていますが、当日の終値は7,376.86でした（CNBC、Yahoo Financeで確認）。</p>
+      <p><strong>3. PERの定義は指数によって異なります。</strong>日経平均は予想利益、S&amp;P500は実績利益、ダウ平均とユーロ・ストックス50はETFのPERです。指数の間で水準を比べる場合は目安にとどめてください。日経平均には加重平均と指数ベースの2種類のPERがあり、当ページは加重平均を使っています。</p>
+      <p><strong>4. 最新日は指数によって異なります。</strong>市場の休場日や、各データの公表時刻の違いによるものです。</p>
+
+      <h3>2026年11月8日の改訂</h3>
+      <p>それまでは、各サイトの表示値を日々記録したログをもとにしていました（2026年3月までは月1点）。次の問題があったため、上記の方法で全期間を作り直しました。</p>
       <ul>
-        <li><strong>S&amp;P500</strong>：multpl.comは過去の値も改定しています。当ページの月初の値は2025年9月まで同サイトの現在の表と一致しますが、2025年10月以降は当ページのほうが高く、2026年6月1日は32.67倍と25.22倍です。当ページは記録した時点の値を残しており、改定を取り込んでいません。</li>
-        <li><strong>ダウ平均</strong>：worldperatio.comの月次履歴は、2026年7月の24.76倍から8月の21.45倍へ下がっています。原因は確認できていません。当ページの推計値には、この低下が入っていません。</li>
-        <li><strong>ユーロ・ストックス50</strong>：大きな差はありません。当ページは11月2日に18.17倍、EXW1.DEの表示値は11月3日に18.21倍です。</li>
+        <li><strong>S&amp;P500とダウ平均のPERが高く出ていました。</strong>直近の値は、7月末のPERを株価の比率だけで伸ばした推計で、その後の決算が反映されていませんでした。S&amp;P500は、multpl.comが後から行った改定も入っていませんでした。作り直しで、重なる日のPERは平均でS&amp;P500が4.55倍、ダウ平均が1.66倍低くなりました。</li>
+        <li><strong>「ドイツ国債」の中身が違っていました。</strong>実際には欧州中央銀行（ECB）のユーロ圏AAA格付け国債の利回り曲線（10年）でした。ドイツ連邦銀行の値に置き換え、平均で0.04ポイント高くなりました。</li>
+        <li><strong>米国債は複数の出所が混在していました。</strong>Yahoo Finance、TradingEconomics、FREDの値を、米財務省の公表値に統一しました。差は平均0.00ポイント、最大0.16ポイントです。</li>
+        <li><strong>日経平均の2025年〜2026年3月の月1点に、日付と値が合わない月がありました。</strong>同じサイトの日次データに置き換えました。</li>
       </ul>
-      <p><strong>2. PERの定義は指数によって異なります。</strong>日経平均は予想利益、S&amp;P500は実績利益、ダウ平均とユーロ・ストックス50はETFのPERです。指数の間で水準を比べる場合は目安にとどめてください。日経平均には加重平均と指数ベースの2種類のPERがあり、当ページは加重平均を使っています。</p>
-      <p><strong>3. 最新日は指数によって異なります。</strong>更新は随時で、市場の休場日や取得の時点によって最新の日付がずれます。</p>
 
       <h3>出典</h3>
       <ul class="source-links">
         <li><a href="https://nikkei225jp.com/data/per.php" target="_blank" rel="noopener">nikkei225jp.com</a>（日経平均PER、日本国債10年）</li>
-        <li><a href="https://indexes.nikkei.co.jp/" target="_blank" rel="noopener">日経平均プロフィル</a>（日経平均PER）</li>
-        <li><a href="https://www.multpl.com/s-p-500-pe-ratio" target="_blank" rel="noopener">multpl.com</a>（S&amp;P500 PER）</li>
+        <li><a href="https://www.multpl.com/s-p-500-pe-ratio/table/by-month" target="_blank" rel="noopener">multpl.com</a>（S&amp;P500 PERの月次表）</li>
         <li><a href="https://worldperatio.com/index/dow-jones/" target="_blank" rel="noopener">worldperatio.com</a>（ダウ平均PER）</li>
-        <li>Yahoo Finance：<a href="https://finance.yahoo.com/quote/%5ETNX/" target="_blank" rel="noopener">^TNX</a>（米国債10年）、<a href="https://finance.yahoo.com/quote/%5EGSPC/" target="_blank" rel="noopener">^GSPC</a>、<a href="https://finance.yahoo.com/quote/DIA/" target="_blank" rel="noopener">DIA</a>、<a href="https://finance.yahoo.com/quote/%5ESTOXX50E/" target="_blank" rel="noopener">^STOXX50E</a>、<a href="https://finance.yahoo.com/quote/EXW1.DE/" target="_blank" rel="noopener">EXW1.DE</a></li>
-        <li><a href="https://data.ecb.europa.eu/" target="_blank" rel="noopener">ECB Data Portal</a>（ドイツ国債10年）</li>
-        <li><a href="https://tradingeconomics.com/" target="_blank" rel="noopener">TradingEconomics</a>、<a href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">FRED</a>（2026年5月までの国債利回りの一部）</li>
+        <li><a href="https://finance.yahoo.com/quote/EXW1.DE/" target="_blank" rel="noopener">Yahoo Finance：EXW1.DE</a>（ユーロ・ストックス50連動ETFのPER）</li>
+        <li>CNBC：<a href="https://www.cnbc.com/quotes/.SPX" target="_blank" rel="noopener">S&amp;P500</a>、<a href="https://www.cnbc.com/quotes/.STOXX50E" target="_blank" rel="noopener">ユーロ・ストックス50</a>（終値）</li>
+        <li><a href="https://www.nasdaq.com/market-activity/etf/dia/historical" target="_blank" rel="noopener">Nasdaq：DIA</a>（終値）</li>
+        <li><a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" target="_blank" rel="noopener">米財務省 Daily Treasury Par Yield Curve Rates</a>（米国債10年）</li>
+        <li><a href="https://statistiken.bundesbank.de/statistiken-de/zeitreihen/BBSIS/D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A" target="_blank" rel="noopener">ドイツ連邦銀行 時系列BBSIS</a>（ドイツ国債10年）</li>
       </ul>
     </section>
   </main>

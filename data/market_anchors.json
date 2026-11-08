@@ -1,0 +1,22 @@
+{
+  "euro": [
+    {
+      "date": "2026-09-02",
+      "pe": 18.712,
+      "index_close": 6362.15,
+      "source": "Yahoo Finance EXW1.DE PE Ratio (TTM)（旧ログの基準値）"
+    },
+    {
+      "date": "2026-11-03",
+      "pe": 18.21,
+      "index_close": 6144.56,
+      "source": "Yahoo Finance EXW1.DE PE Ratio (TTM)（2026-11-04確認）"
+    },
+    {
+      "date": "2026-11-06",
+      "pe": 18.3,
+      "index_close": 6170.49,
+      "source": "Yahoo Finance EXW1.DE PE Ratio (TTM)"
+    }
+  ]
+}
