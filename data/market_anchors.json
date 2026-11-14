@@ -17,6 +17,12 @@
       "pe": 18.3,
       "index_close": 6170.49,
       "source": "Yahoo Finance EXW1.DE PE Ratio (TTM)"
+    },
+    {
+      "date": "2026-11-13",
+      "pe": 19.19,
+      "index_close": 6386.86,
+      "source": "Yahoo Finance EXW1.DE PE Ratio (TTM)"
     }
   ]
 }
