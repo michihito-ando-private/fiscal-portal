@@ -517,3 +517,104 @@ a.tab { text-decoration: none; }
   .nav-inner { gap: 6px; }
   .search-box { width: 100%; }
 }
+
+/* ---------- 特集ページ ---------- */
+.feature-lead h2 {
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.35rem;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.feature-meta { font-size: 0.78rem; color: var(--ink-light); margin-bottom: 10px; }
+.feature-points { margin: 10px 0 2px; padding-left: 1.2em; }
+.feature-points li { margin: 6px 0; }
+.feature-toc { display: flex; flex-wrap: wrap; gap: 6px 8px; margin-top: 14px; }
+.feature-toc a {
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--accent);
+  text-decoration: none;
+  background: var(--bg);
+}
+.feature-toc a:hover { border-color: var(--accent); }
+.feature-section { scroll-margin-top: 84px; }
+.feature-section .chart-title { margin-bottom: 4px; }
+.feature-section > p, .feature-section li { font-size: 0.88rem; color: var(--ink-light); line-height: 1.85; }
+.feature-section > p { margin: 8px 0; }
+.feature-section strong { color: var(--ink); }
+.feature-section a { color: var(--accent); }
+.feature-section h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 20px 0 6px;
+}
+.feature-section ul { padding-left: 1.3em; margin: 6px 0; }
+.feature-section li { margin: 4px 0; }
+.source-table td.num, .source-table th.num { text-align: right; white-space: nowrap; }
+.source-table tr.hl td { background: #fff7e6; }
+.table-note { font-size: 0.76rem; color: var(--ink-light); line-height: 1.7; margin: 4px 0 10px; }
+
+.timeline { list-style: none; padding-left: 0 !important; margin: 10px 0; border-left: 2px solid var(--border); }
+.timeline li { position: relative; padding: 0 0 14px 18px; margin: 0 !important; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -6px; top: 8px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 2px solid var(--accent);
+}
+.timeline li.key::before { background: var(--accent); }
+.tl-date { display: block; font-size: 0.78rem; font-weight: 700; color: var(--accent); letter-spacing: 0.02em; }
+.tl-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0 7px;
+  margin-right: 6px;
+  border-radius: 4px;
+  color: #fff;
+  vertical-align: 1px;
+}
+.tl-gov { background: var(--c-government); }
+.tl-diet { background: var(--c-expenditure); }
+.tl-mof { background: var(--c-revenue); }
+.tl-stk { background: var(--c-stakeholder); }
+.tl-media { background: var(--c-international); }
+.tl-past { background: #8792a2; }
+.timeline-era {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 18px 0 6px;
+  padding: 3px 10px;
+  background: var(--bg);
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.issue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; margin-top: 10px; }
+.issue-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: var(--card-bg);
+}
+.issue-card h4 { font-size: 0.92rem; color: var(--ink); margin-bottom: 4px; }
+.issue-card p { font-size: 0.84rem; color: var(--ink-light); line-height: 1.8; margin: 4px 0; }
+.issue-status { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0 7px; border-radius: 4px; background: var(--bg); color: var(--c-digest); border: 1px solid var(--border); }
+
+.related-list { list-style: none; padding-left: 0 !important; }
+.related-list li { padding: 7px 0; border-bottom: 1px dashed var(--border); margin: 0 !important; }
+.related-list .rel-date { font-size: 0.76rem; color: var(--ink-light); margin-right: 8px; white-space: nowrap; }
+.related-list .rel-src { font-size: 0.74rem; color: var(--ink-light); margin-left: 6px; }
+
+@media (max-width: 640px) {
+  .feature-lead h2 { font-size: 1.15rem; }
+  .issue-grid { grid-template-columns: 1fr; }
+}
