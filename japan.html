@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本経済ダッシュボード | 財政情報ポータル</title>
+  <meta name="description" content="物価・賃金・景気・金利の主要指標で日本経済の現状を確認する">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=20261121a">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        <h1 class="site-title"><span class="title-mark">¥</span> 財政情報ポータル</h1>
+        <p class="site-subtitle">Fiscal Policy Watch — 日本と世界の財政・社会保障を追う</p>
+      </div>
+      <p class="update-info">日本経済ダッシュボード 最終更新: <time id="last-updated">読み込み中…</time></p>
+    </div>
+  </header>
+
+  <nav class="category-nav">
+    <div class="container nav-inner">
+      <div class="tabs">
+        <a class="tab" href="index.html">← ニュース一覧へ戻る</a>
+        <span class="tab active">日本経済ダッシュボード<span class="tab-note">物価・賃金・景気・金利</span></span>
+        <a class="tab" href="market.html">市場データ<span class="tab-note">PER・利回り</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <p class="market-intro">
+      日本経済の現状を、<strong>物価・賃金・景気・金利</strong>の主な公式統計で確認するページです。
+      まず主要指標と「4つの問い」で全体をつかみ、グラフと表で細部を確認できます。
+      数値は更新のたびに各機関の公表データから計算し直しています。統計によって最新月が異なる点にご注意ください。
+      出所と計算方法は<a href="#data-sources">ページ下部</a>にあります。
+    </p>
+    <div id="notice" class="notice" hidden></div>
+
+    <section class="chart-section">
+      <h2 class="chart-title">主要指標</h2>
+      <div id="kpi-grid" class="kpi-grid"></div>
+    </section>
+
+    <section class="chart-section">
+      <h2 class="chart-title">4つの問い</h2>
+      <p class="chart-note">いま日本経済で注目される4つの論点について、答えの手がかりになる数字をまとめています。</p>
+      <div id="q-grid" class="q-grid"></div>
+    </section>
+
+    <div id="charts"></div>
+    <div id="tables"></div>
+
+    <section class="chart-section source-section" id="data-sources">
+      <h2 class="chart-title">データの出所と計算方法</h2>
+
+      <h3>各統計の最新時点</h3>
+      <p id="source-dates">読み込み中…</p>
+
+      <h3>出所</h3>
+      <div class="table-scroll">
+        <table class="source-table">
+          <thead><tr><th>分野</th><th>統計</th><th>作成機関</th><th>取得方法</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">物価</th><td>消費者物価指数（全国, 2025年基準）</td><td>総務省統計局</td><td>e-Stat API</td></tr>
+            <tr><th scope="row">物価</th><td>消費者物価のコア指標（制度要因を除く試算、刈込平均値・加重中央値・最頻値）</td><td>日本銀行</td><td>日銀サイトのExcel</td></tr>
+            <tr><th scope="row">物価</th><td>国内企業物価指数</td><td>日本銀行</td><td>日銀 時系列統計API</td></tr>
+            <tr><th scope="row">雇用</th><td>労働力調査（完全失業率・就業者数・雇用者数、季節調整値）</td><td>総務省統計局</td><td>e-Stat（長期時系列表 1-a-1）</td></tr>
+            <tr><th scope="row">雇用</th><td>一般職業紹介状況（有効求人倍率、季節調整値）</td><td>厚生労働省</td><td>e-Stat（長期時系列表 第3表）</td></tr>
+            <tr><th scope="row">賃金</th><td>毎月勤労統計調査（現金給与総額・実質賃金、5人以上）</td><td>厚生労働省</td><td>e-Stat（長期時系列表と最新の速報）</td></tr>
+            <tr><th scope="row">景気</th><td>四半期別GDP速報（実質季節調整系列）</td><td>内閣府</td><td>内閣府サイトのCSV</td></tr>
+            <tr><th scope="row">景気</th><td>需給ギャップ／全国企業短期経済観測調査（短観）</td><td>日本銀行</td><td>日銀サイトのExcel／時系列統計API</td></tr>
+            <tr><th scope="row">金利</th><td>国債金利情報</td><td>財務省</td><td>財務省サイトのCSV</td></tr>
+            <tr><th scope="row">金利・為替</th><td>無担保コールO/N物レート、ドル円（東京市場17時）</td><td>日本銀行</td><td>日銀 時系列統計API</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>計算方法と注意</h3>
+      <ul>
+        <li><strong>前年同月比</strong>：CPI・賃金・日銀のコア指標は、公表されている前年同月比をそのまま使っています。国内企業物価は指数から計算しています。</li>
+        <li><strong>3か月前比年率</strong>：CPIの季節調整済み指数を3か月前と比べ、12か月分に引き延ばした値です。公表指数が小数第1位までのため、0.3〜0.4ポイント程度の誤差があります。</li>
+        <li><strong>GDP</strong>：実質季節調整系列（2020暦年連鎖価格）から、前期比年率（前期比を4乗）と前年同期比を計算しています。速報が出るたびに過去の値も改定されます。</li>
+        <li><strong>賃金</strong>：長期時系列表に載る前の最新月は、速報の指数要約表から補っています。実質賃金は厚生労働省の公表どおり、消費者物価（持家の帰属家賃を除く総合）で実質化した値です。</li>
+        <li><strong>政策金利</strong>：日銀が決めた誘導目標を手で記入しています。更新スクリプトは日銀の基準貸付利率と照らし合わせ、食い違えば警告を出します。</li>
+        <li><strong>長期金利の分解</strong>：10年国債利回りの変化を、2年国債利回りの変化（今後の政策金利の予想）と、10年と2年の差の変化に分けた簡易的なものです。</li>
+        <li><strong>季節調整値の改定</strong>：失業率・有効求人倍率は毎年はじめに季節調整がかけ直され、過去の値も変わります。</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>データの出所と計算方法は、上の「データの出所と計算方法」に記載しています。</p>
+      <p>本ページは参考情報であり、正確性・完全性を保証するものではありません。</p>
+      <p>このサービスは、政府統計総合窓口(e-Stat)のAPI機能を使用していますが、サービスの内容は国によって保証されたものではありません。</p>
+    </div>
+  </footer>
+
+  <script src="assets/japan.js?v=20261121a"></script>
+</body>
+</html>

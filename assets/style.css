@@ -618,3 +618,31 @@ a.tab { text-decoration: none; }
   .feature-lead h2 { font-size: 1.15rem; }
   .issue-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- 日本経済ダッシュボード ---------- */
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; margin-top: 12px; }
+.kpi { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--card-bg); }
+.kpi-label { font-size: 0.76rem; font-weight: 700; color: var(--ink-light); line-height: 1.4; }
+.kpi-value { font-size: 1.6rem; font-weight: 900; color: var(--ink); line-height: 1.3; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.kpi-unit { font-size: 0.85rem; font-weight: 700; margin-left: 2px; color: var(--ink-light); }
+.kpi-sub { font-size: 0.72rem; color: var(--ink-light); line-height: 1.5; }
+.kpi-date { font-size: 0.72rem; color: var(--accent); font-weight: 700; }
+
+.q-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.q-card { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; background: var(--card-bg); display: flex; flex-direction: column; }
+.q-card h3 { font-size: 0.98rem; color: var(--ink); margin-bottom: 6px; }
+.q-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.q-table th, .q-table td { padding: 5px 4px; border-bottom: 1px dashed var(--border); vertical-align: top; }
+.q-table th { text-align: left; font-weight: 500; color: var(--ink); }
+.q-table td.num { text-align: right; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.q-table td.q-date { text-align: right; font-size: 0.72rem; color: var(--ink-light); white-space: nowrap; }
+.q-note { font-size: 0.76rem; color: var(--ink-light); line-height: 1.7; margin: 8px 0 6px; flex: 1; }
+.q-link { font-size: 0.78rem; color: var(--accent); text-decoration: none; font-weight: 700; }
+.jp-table { scroll-margin-top: 84px; }
+.jp-table .source-table td.num { font-variant-numeric: tabular-nums; }
+
+@media (max-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi-value { font-size: 1.3rem; }
+  .q-grid { grid-template-columns: 1fr; }
+}
