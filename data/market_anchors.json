@@ -29,6 +29,12 @@
       "pe": 18.5,
       "index_close": 6154.39,
       "source": "Yahoo Finance EXW1.DE PE Ratio (TTM)（11/19日中の18.62を前日終値62.15に換算）"
+    },
+    {
+      "date": "2026-11-20",
+      "pe": 17.87,
+      "index_close": 5941.95,
+      "source": "Yahoo Finance EXW1.DE PE Ratio (TTM)"
     }
   ]
 }
