@@ -269,7 +269,7 @@ def fetch_wages():
     real_raw, real_date, _ = estat_file(
         "00450071", r"実質賃金（現金給与総額） 指数及び増減率－就業形態計（５人以上）.*持家の帰属家賃を除く総合", "時系列")
     nominal, real = _maikin_long(nom_raw), _maikin_long(real_raw)
-    flash_raw, flash_date, flash_name = estat_file("00450071", r"指数要約表（令和.*速報）", "速報")
+    flash_raw, flash_date, flash_name = estat_file("00450071", r"指数要約表（令和.*(速報|確報)）", "指数要約表")
     fkey, fn, fr = _maikin_flash(flash_raw)
     flash = None
     if fn is not None and fkey not in nominal:

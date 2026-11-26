@@ -229,7 +229,23 @@ def main():
     wpr_monthly, wpr_latest = fetch_worldperatio()
     rows = [row(d, "Nikkei225", per, jgb, "nikkei225jp加重平均PER", "nikkei225jp日本10年")
             for d, (per, jgb) in sorted(nk.items())]
-    rows += build_sp500(fetch_cnbc(".SPX", "2024-12-01"), fetch_multpl_eps(), ust)
+    spx = fetch_cnbc(".SPX", "2024-12-01")
+    try:
+        rows += build_sp500(spx, fetch_multpl_eps(), ust)
+    except subprocess.CalledProcessError:
+        # multpl.com に接続できないとき: 既存ログのS&P500行を残し、最新月のEPSを（終値÷PER）で逆算して新しい日付だけ足す
+        print("警告: multpl.com に接続できません。既存のS&P500の行を引き継ぎ、最新月のEPSで新しい日付だけを計算します", file=sys.stderr)
+        old = [r for r in csv.DictReader(OUT_CSV.open(encoding="utf-8")) if r["index"] == "SP500"]
+        last = max(old, key=lambda r: r["date"])
+        month = re.search(r"\((\d{4}-\d{2})\)", last["per_method"]).group(1)
+        eps = spx[last["date"]] / float(last["per"])
+        for r in old:
+            rows.append({"date": r["date"], "index": "SP500", "per": float(r["per"]), "ey_pct": float(r["ey_pct"]),
+                         "bond_yield_pct": float(r["bond_yield_pct"]), "ys_pct": float(r["ys_pct"]),
+                         "per_method": r["per_method"], "bond_source": r["bond_source"]})
+        for d, px in sorted(spx.items()):
+            if d > last["date"] and d in ust and d[:7] == month:
+                rows.append(row(d, "SP500", px / eps, ust[d], f"CNBC終値÷multpl月次EPS({month})", "米財務省10年"))
     rows += build_dow(fetch_dia("2024-12-01"), wpr_monthly, wpr_latest, ust)
     rows += build_euro(stoxx, anchors["euro"], fetch_bund("2026-08-01"))
 
